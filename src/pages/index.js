@@ -1,76 +1,467 @@
+import Link from 'next/link';
 import Image from 'next/image';
-/* <Image src="/images/logo.png" width={299} height={328} quality={100} priority /> */
-/* <Image src="/images/text-logo.png" width={526} height={131} quality={100} priority /> */
+import Logo from '../components/Logo';
+import TextLogo from '../components/TextLogo';
+import WorkStoreDispatch from '../components/WorkStoreDispatch';
 
 export default function Index() {
   return (
-    <div className="flex items-center justify-center w-screen h-screen">
-      <div className="flex flex-col items-center max-w-xl px-4 space-y-4">
-        <div>
-          <Image src="/images/logo.png" width={299} height={328} quality={100} priority />
+    <>
+      <Hero />
+      <WhoWeAre />
+      <SplitSection />
+      <WeAreDifferent />
+      <WorkStoreDispatch />
+      <Enterprise />
+      <GetInTouch />
+    </>
+  );
+}
+
+const Hero = () => (
+  <div className="relative w-full h-screen bg-c-brown-500">
+    <div className="flex items-center justify-center h-full">
+      <div className="flex flex-col items-center w-full space-y-12">
+        <div className="w-96">
+          <Logo />
         </div>
 
-        <div>
-          <Image src="/images/text-logo.png" width={526} height={131} quality={100} priority />{' '}
+        <div className="w-full max-w-lg">
+          <TextLogo />
         </div>
+      </div>
+    </div>
+  </div>
+);
 
-        <div className="max-w-sm space-y-4 text-center text-white">
-          <p>
-            We're busy creating 4000m<sup>2</sup> of exciting new spaces for short and long term
-            lease.
+const WhoWeAre = () => (
+  <div className="relative min-h-screen py-24 pb-64 overflow-hidden text-center bg-c-brown-500">
+    <div className="relative z-10 w-full max-w-2xl mx-auto space-y-12">
+      <p className="text-base font-medium tracking-wide uppercase text-c-brown-900">Who we are</p>
+
+      <h2 className="text-5xl font-medium text-white">
+        Brixton Hive is a community for work and innovation, storage and creation.
+      </h2>
+
+      <h3 className="pt-4 text-lg text-c-brown-900">
+        Home to thriving e-commerce, small businesses and community groups. Brixton Hive takes
+        responsibility of services that can be shared and externally managed so you can focus on
+        what you do best and enjoy most.
+      </h3>
+
+      <Link href="/our-values" passHref>
+        <a className="inline-block w-48 p-4 text-lg transition bg-white rounded-full shadow-lg text-c-brown-900 transform-gpu hover:scale-95">
+          Our values
+        </a>
+      </Link>
+    </div>
+
+    <svg
+      viewBox="0 0 791.94 567.55"
+      className="absolute bottom-0 left-0 z-0 w-1/2 transform -translate-x-10 translate-y-10 opacity-40 text-c-brown-600"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        d="M299.27,231.85c0-3.55-2.25-6-5.33-7.78L205.8,173.18a9.94,9.94,0,0,0-10,0L107.7,224.07a10,10,0,0,0-5,8.61V334.46a10,10,0,0,0,5,8.62L195.85,394a9.94,9.94,0,0,0,10,0l88.14-50.89c3.08-1.78,5.12-7.29,5.12-10.84"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        d="M495.66,333.63c0,3.56-2.1,8.1-5.18,9.87l-88.15,50.89a9.94,9.94,0,0,1-9.95,0L304.24,343.5a9.93,9.93,0,0,1-5-8.61V233.1a9.94,9.94,0,0,1,5-8.61l88.14-50.89a9.94,9.94,0,0,1,9.95,0l88.15,50.89c3.08,1.78,5.18,3.81,5.18,7.36"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        d="M495.66,333.63V231.85a10,10,0,0,1,5-8.62l88.15-50.89a10,10,0,0,1,10,0l88.14,50.89a10,10,0,0,1,5,8.62V333.63a10,10,0,0,1-5,8.62l-88.14,50.89a10,10,0,0,1-10,0l-88.15-50.89A9.94,9.94,0,0,1,495.66,333.63Z"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        d="M523.12,317.8V247.68a9.9,9.9,0,0,1,5-8.58l55.74-32.18a19.85,19.85,0,0,1,19.86,0l55.75,32.18a9.91,9.91,0,0,1,5,8.58V317.8a9.91,9.91,0,0,1-5,8.58l-60.72,35.05a9.91,9.91,0,0,1-9.91,0l-60.72-35.05A9.9,9.9,0,0,1,523.12,317.8Z"
+      />
+      <polyline
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        points="664.82 242.06 593.75 279.04 522.68 242.06"
+      />
+      <polyline
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        points="664.54 283.54 593.75 320.38 522.96 283.54"
+      />
+      <line
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        x1="593.75"
+        y1="204.27"
+        x2="593.75"
+        y2="396.01"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        d="M193.18,175c3.08-1.77,6-5.81,6-9.37V63.84a10,10,0,0,0-5-8.62L106.07,4.33a10,10,0,0,0-9.95,0L8,55.22a10,10,0,0,0-5,8.62V165.62a10,10,0,0,0,5,8.62l88.15,50.89c3.08,1.77,8.87.79,11.95-1"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        d="M598.68,393c-3.08,1.77-5.93,5.38-5.93,8.93V503.72a10,10,0,0,0,5,8.61l88.14,50.89a9.94,9.94,0,0,0,10,0L784,512.33a9.94,9.94,0,0,0,5-8.61V401.93a9.93,9.93,0,0,0-5-8.61l-88.15-50.89c-3.08-1.78-7.58-1.14-10.66.64"
+      />
+    </svg>
+  </div>
+);
+
+const SplitSection = () => (
+  <div className="lg:flex lg:min-h-screen">
+    <div className="flex-1 px-24 py-24 lg:py-0 bg-c-green-500">
+      <div className="flex items-center justify-center h-full">
+        <div className="flex flex-col items-center">
+          <div className="flex flex-col space-y-1 lg:items-end">
+            <h4 className="text-5xl font-medium text-white uppercase">
+              Live <span className="text-c-green-300">local</span>
+            </h4>
+
+            <h4 className="text-5xl font-medium text-white uppercase">
+              work <span className="text-c-green-300">local</span>
+            </h4>
+
+            <p className="pt-12 text-xl lg:text-right text-c-green-100">
+              COVID-19 has seen many changes in the way we live, not least the explosion in
+              e-commerce and the desire to work locally. Most of us at Brixton Hive live within 5
+              kilometres, and we all know the value of this.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="flex-1 px-24 py-24 lg:py-0 bg-c-purple-400">
+      <div className="flex flex-col justify-center h-full space-y-12">
+        <p className="text-4xl font-medium text-c-purple-200">
+          We believe humanity is at its best when we feel{' '}
+          <span className="text-white">deeply connected to a community.</span>
+        </p>
+
+        <p className="text-4xl font-medium text-c-purple-200">
+          At Brixton Hive you will certainly benefit from{' '}
+          <span className="text-white">our inclusive culture.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+);
+
+const WeAreDifferent = () => (
+  <div className="relative min-h-screen py-24 overflow-hidden bg-c-brown-500">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 791.94 567.55"
+      className="absolute top-0 right-0 z-0 w-1/2 transform translate-x-10 -translate-y-10 opacity-40 text-c-brown-600"
+    >
+      <path
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        d="M299.27,231.85c0-3.55-2.25-6-5.33-7.78L205.8,173.18a9.94,9.94,0,0,0-10,0L107.7,224.07a10,10,0,0,0-5,8.61V334.46a10,10,0,0,0,5,8.62L195.85,394a9.94,9.94,0,0,0,10,0l88.14-50.89c3.08-1.78,5.12-7.29,5.12-10.84"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        d="M495.66,333.63c0,3.56-2.1,8.1-5.18,9.87l-88.15,50.89a9.94,9.94,0,0,1-9.95,0L304.24,343.5a9.93,9.93,0,0,1-5-8.61V233.1a9.94,9.94,0,0,1,5-8.61l88.14-50.89a9.94,9.94,0,0,1,9.95,0l88.15,50.89c3.08,1.78,5.18,3.81,5.18,7.36"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        d="M495.66,333.63V231.85a10,10,0,0,1,5-8.62l88.15-50.89a10,10,0,0,1,10,0l88.14,50.89a10,10,0,0,1,5,8.62V333.63a10,10,0,0,1-5,8.62l-88.14,50.89a10,10,0,0,1-10,0l-88.15-50.89A9.94,9.94,0,0,1,495.66,333.63Z"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        d="M523.12,317.8V247.68a9.9,9.9,0,0,1,5-8.58l55.74-32.18a19.85,19.85,0,0,1,19.86,0l55.75,32.18a9.91,9.91,0,0,1,5,8.58V317.8a9.91,9.91,0,0,1-5,8.58l-60.72,35.05a9.91,9.91,0,0,1-9.91,0l-60.72-35.05A9.9,9.9,0,0,1,523.12,317.8Z"
+      />
+      <polyline
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        points="664.82 242.06 593.75 279.04 522.68 242.06"
+      />
+      <polyline
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        points="664.54 283.54 593.75 320.38 522.96 283.54"
+      />
+      <line
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        x1="593.75"
+        y1="204.27"
+        x2="593.75"
+        y2="396.01"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        d="M193.18,175c3.08-1.77,6-5.81,6-9.37V63.84a10,10,0,0,0-5-8.62L106.07,4.33a10,10,0,0,0-9.95,0L8,55.22a10,10,0,0,0-5,8.62V165.62a10,10,0,0,0,5,8.62l88.15,50.89c3.08,1.77,8.87.79,11.95-1"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        stroke="currentColor"
+        strokeLinecap="round"
+        d="M598.68,393c-3.08,1.77-5.93,5.38-5.93,8.93V503.72a10,10,0,0,0,5,8.61l88.14,50.89a9.94,9.94,0,0,0,10,0L784,512.33a9.94,9.94,0,0,0,5-8.61V401.93a9.93,9.93,0,0,0-5-8.61l-88.15-50.89c-3.08-1.78-7.58-1.14-10.66.64"
+      />
+    </svg>
+
+    <div className="relative z-10 w-full max-w-4xl mx-auto space-y-24">
+      <p className="text-5xl font-medium text-center text-white">
+        We are different to any other co-work or storage space on purpose.
+      </p>
+
+      <div className="space-y-24 lg:flex lg:space-x-16 lg:space-y-0">
+        <div className="flex flex-col flex-1 space-y-8">
+          <p className="text-lg text-c-brown-900">
+            Brixton Hive is a communal space divided into four functional zones that each include
+            different benefits.
+          </p>
+          <p className="text-lg text-c-brown-900">
+            Every tenant has unique needs, and we pride ourselves on being able to customise each
+            package to best suit the community member.
           </p>
 
-          <p>Please contact us to discuss customising your ideal space.</p>
+          <ul className="p-4 space-y-2 rounded-lg bg-c-brown-600">
+            {['Enterprise', 'Store', 'Work', 'Warehouse'].map((level, i) => (
+              <li key={level} className="flex items-center justify-between">
+                <p className="text-c-brown-300">Level {4 - i}</p>
+                <p className="text-lg font-medium text-white">{level}</p>
+              </li>
+            ))}
+          </ul>
 
-          <p>Availability from July 2021</p>
+          {/* <p>
+            We have all the equipment on site that you will need to receive your deliveries, be that
+            receiving parcels or boxes to unloading pallets from a truck or containers.
+          </p>
+          <p>
+            A community manager is onsite 9-5 weekdays to ensure the smooth running of this
+            workplace so you can be focussed on your work. We provide secure a monitored dispatch
+            space so you can leave your orders to be courier collected without needing to stay on
+            site.
+          </p> */}
         </div>
 
-        <div className="inline-flex items-center space-x-4 text-white">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-            />
-          </svg>
+        <div className="flex flex-1">
+          <iframe
+            loading="lazy"
+            allowFullScreen={false}
+            className="w-full h-48 border-none rounded-lg shadow-lg outline-none focus:outline-none lg:h-full"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.051252515417!2d145.05811321532002!3d-37.85909117974418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad641fb4cb88e39%3A0x35cc3e5d2725ce76!2s18%20Brixton%20Rise%2C%20Glen%20Iris%20VIC%203146!5e0!3m2!1sen!2sau!4v1616118717538!5m2!1sen!2sau"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
-          <a href="tel:+61420545024">0420 545 024</a>
+const Enterprise = () => {
+  const options = [
+    'Fabulous tree-top views and some city views',
+    'Exclusive secure 24/7 access',
+    'Private faculties can be inclusive of your new workplace',
+    'Reserved parking spaces available',
+  ];
+
+  return (
+    <div className="relative z-0 min-h-screen p-24 bg-white">
+      <div className="w-full max-w-4xl mx-auto space-y-16">
+        <p className="absolute text-6xl font-medium text-gray-300 top-24 left-24">Level 4</p>
+
+        <p className="text-5xl font-bold text-center text-gray-900">Enterprise</p>
+
+        <div className="flex space-x-16">
+          <div className="flex-1 space-y-8">
+            <p className="text-3xl font-medium text-gray-900">
+              Level 4 is your clean slate, ready to be tailored to your enterprise business needs
+            </p>
+
+            <div className="space-y-8 text-lg text-gray-700">
+              <p>
+                Most of our larger long term members have worked with us to customise their perfect
+                environment, Blakes Feast, Thrust Maritime and Glen Iris School of Dance are just
+                three examples of this.
+              </p>
+
+              <p>
+                Each of these thriving businesses has experienced the benefit of the availability of
+                expansion of space as their business has evolved.
+              </p>
+
+              <p>
+                If your company needs space for more than six members, please{' '}
+                <a href="#get-in-touch">get in touch with us</a> to create the perfect space for
+                you.
+              </p>
+            </div>
+          </div>
+
+          <div className="w-full max-w-md space-y-8">
+            <div className="mr-12">
+              <Image
+                width="6000"
+                height="4000"
+                quality="100"
+                src="/images/nTO9T_VQ.jpeg"
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+
+            <div className="ml-12">
+              <Image
+                width="6000"
+                height="4000"
+                quality="100"
+                src="/images/img_2313.jpeg"
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
         </div>
 
-        <div className="inline-flex items-center space-x-4 text-white">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="feather feather-instagram"
-          >
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-          </svg>
-
-          <a
-            href="https://www.instagram.com/brixton.hive/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            brixton.hive
-          </a>
+        <div className="flex space-x-4">
+          {options.map(option => (
+            <div className="px-4 py-2 text-gray-900 bg-gray-100 rounded-md">{option}</div>
+          ))}
         </div>
       </div>
     </div>
   );
-}
+};
+
+const GetInTouch = () => (
+  <div id="get-in-touch" className="relative flex items-center w-full px-24 py-64 overflow-hidden">
+    <div className="relative z-10 flex space-x-24 space-y-16">
+      <div className="flex-1 space-y-8 text-5xl font-medium text-center text-white xl:text-left">
+        <p>Come say 👋</p>
+        <p>Together, we will create the space you love.</p>
+      </div>
+
+      <div className="flex items-center justify-between flex-shrink-0 p-8 space-x-8 bg-white rounded-lg shadow-lg">
+        <div className="flex-1">
+          <p className="text-lg text-gray-500">Email us at</p>
+          <a href="mailto:hello@brixtonhive.com.au" className="text-2xl font-medium">
+            hello@brixtonhive.com.au
+          </a>
+        </div>
+        <div className="flex-1">
+          <p className="text-lg text-gray-500">Or give us a call on</p>
+          <a href="tel:0420545024" className="text-2xl font-medium">
+            0420 545 024
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 892.04 906.92"
+      className="absolute z-0 w-1/2 opacity-50 right-28 text-c-brown-600"
+    >
+      <path
+        fill="none"
+        strokeWidth="6"
+        strokeLinecap="round"
+        stroke="currentColor"
+        d="M297.46,402.18c0-3.56-2.25-6-5.33-7.79L204,343.5a10,10,0,0,0-10,0l-88.15,50.89a10,10,0,0,0-5,8.62V504.79a10,10,0,0,0,5,8.62L194,564.3a9.94,9.94,0,0,0,10,0l88.14-50.89c3.08-1.78,5.12-7.29,5.12-10.84"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        strokeLinecap="round"
+        stroke="currentColor"
+        d="M593.75,673c0,3.55-2.1,8.09-5.18,9.87l-88.14,50.89a9.94,9.94,0,0,1-9.95,0l-88.15-50.89a10,10,0,0,1-5-8.62V572.47a10,10,0,0,1,5-8.61L490.48,513a9.94,9.94,0,0,1,9.95,0l88.14,50.89c3.08,1.77,5.18,3.8,5.18,7.36"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        strokeLinecap="round"
+        stroke="currentColor"
+        d="M593.75,673V571.22a10,10,0,0,1,5-8.62l88.14-50.89a9.94,9.94,0,0,1,10,0L785,562.6a10,10,0,0,1,5,8.62V673a10,10,0,0,1-5,8.62l-88.15,50.89a10,10,0,0,1-10,0l-88.14-50.89A10,10,0,0,1,593.75,673Z"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        strokeLinecap="round"
+        stroke="currentColor"
+        d="M488.06,514.36c3.07-1.78,6-5.82,6-9.37V403.21a9.94,9.94,0,0,0-5-8.62L400.94,343.7a9.92,9.92,0,0,0-9.94,0l-88.15,50.89a9.94,9.94,0,0,0-5,8.62V505a10,10,0,0,0,5,8.62L391,564.5c3.07,1.77,8.87.79,11.94-1"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        strokeLinecap="round"
+        stroke="currentColor"
+        d="M696.77,732.37c-3.08,1.77-5.92,5.38-5.92,8.93V843.08a9.94,9.94,0,0,0,5,8.62L784,902.59a9.94,9.94,0,0,0,9.95,0l88.14-50.89a10,10,0,0,0,5-8.62V741.3a9.94,9.94,0,0,0-5-8.61L793.92,681.8c-3.08-1.78-7.59-1.14-10.67.64"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        strokeLinecap="round"
+        stroke="currentColor"
+        d="M193.18,344.06c3.08-1.78,6-5.82,6-9.38V232.9a9.94,9.94,0,0,0-5-8.61L106.07,173.4a9.94,9.94,0,0,0-9.95,0L8,224.29a10,10,0,0,0-5,8.61V334.68a10,10,0,0,0,5,8.62l88.15,50.89c3.08,1.78,8.87.79,11.95-1"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        strokeLinecap="round"
+        stroke="currentColor"
+        d="M785.22,562.76c3.08,1.78,7.62,2.44,10.7.66l88.14-50.89a9.94,9.94,0,0,0,5-8.61V402.14a10,10,0,0,0-5-8.62l-88.14-50.89a9.94,9.94,0,0,0-9.95,0l-88.15,50.89a10,10,0,0,0-5,8.62V503.92c0,3.55,2.81,7.14,5.89,8.91"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        strokeLinecap="round"
+        stroke="currentColor"
+        d="M487.83,393.47c3.08,1.78,7.62,2.44,10.7.67l88.15-50.9a10,10,0,0,0,5-8.61V232.85a10,10,0,0,0-5-8.62l-88.15-50.89a9.94,9.94,0,0,0-9.95,0l-88.14,50.89a10,10,0,0,0-5,8.62V334.63c0,3.55,2.81,7.14,5.89,8.91"
+      />
+      <path
+        fill="none"
+        strokeWidth="6"
+        strokeLinecap="round"
+        stroke="currentColor"
+        d="M193.46,224.47c3.08,1.77,7.62,2.43,10.7.66l88.15-50.89a9.94,9.94,0,0,0,5-8.62V63.84a10,10,0,0,0-5-8.62L204.16,4.33a10,10,0,0,0-9.95,0L106.07,55.22a10,10,0,0,0-5,8.62V165.62c0,3.56,2.81,7.14,5.89,8.92"
+      />
+    </svg>
+  </div>
+);
