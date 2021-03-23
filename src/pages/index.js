@@ -10,6 +10,7 @@ export default function Index() {
       <Hero />
       <WhoWeAre />
       <SplitSection />
+      <MapSection />
       <WeAreDifferent />
       <WorkStoreDispatch />
       <Enterprise />
@@ -19,14 +20,14 @@ export default function Index() {
 }
 
 const Hero = () => (
-  <div className="relative w-full h-screen bg-c-brown-500">
+  <div className="relative w-full h-screen bg-c-blue-light-500">
     <div className="flex items-center justify-center h-full">
       <div className="flex flex-col items-center w-full space-y-12">
-        <div className="w-96">
+        <div className="w-full max-w-lg">
           <Logo />
         </div>
 
-        <div className="w-full max-w-lg">
+        <div className="w-full max-w-2xl">
           <TextLogo />
         </div>
       </div>
@@ -35,22 +36,22 @@ const Hero = () => (
 );
 
 const WhoWeAre = () => (
-  <div className="relative min-h-screen py-24 pb-64 overflow-hidden text-center bg-c-brown-500">
+  <div className="relative flex items-center min-h-screen py-24 pb-64 overflow-hidden text-center bg-c-blue-500">
     <div className="relative z-10 w-full max-w-2xl mx-auto space-y-12">
-      <p className="text-base font-medium tracking-wide uppercase text-c-brown-900">Who we are</p>
+      <p className="text-base font-medium tracking-wide uppercase text-c-blue-300">Who we are</p>
 
       <h2 className="text-5xl font-medium text-white">
         Brixton Hive is a community for work and innovation, storage and creation.
       </h2>
 
-      <h3 className="pt-4 text-lg text-c-brown-900">
+      <h3 className="pt-4 text-lg text-c-blue-300">
         Home to thriving e-commerce, small businesses and community groups. Brixton Hive takes
         responsibility of services that can be shared and externally managed so you can focus on
         what you do best and enjoy most.
       </h3>
 
       <Link href="/our-values" passHref>
-        <a className="inline-block w-48 p-4 text-lg transition bg-white rounded-full shadow-lg text-c-brown-900 transform-gpu hover:scale-95">
+        <a className="inline-block w-48 p-4 text-lg transition bg-white rounded-full shadow-lg text-c-blue-900 transform-gpu hover:scale-95">
           Our values
         </a>
       </Link>
@@ -58,7 +59,7 @@ const WhoWeAre = () => (
 
     <svg
       viewBox="0 0 791.94 567.55"
-      className="absolute bottom-0 left-0 z-0 w-1/2 transform -translate-x-10 translate-y-10 opacity-40 text-c-brown-600"
+      className="absolute bottom-0 left-0 z-0 w-1/2 transform -translate-x-10 translate-y-10 opacity-40 text-c-blue-600"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -133,19 +134,19 @@ const WhoWeAre = () => (
 
 const SplitSection = () => (
   <div className="lg:flex lg:min-h-screen">
-    <div className="flex-1 px-24 py-24 lg:py-0 bg-c-green-500">
+    <div className="flex-1 px-24 py-24 lg:py-0 bg-c-purple-500">
       <div className="flex items-center justify-center h-full">
         <div className="flex flex-col items-center">
           <div className="flex flex-col space-y-1 lg:items-end">
             <h4 className="text-5xl font-medium text-white uppercase">
-              Live <span className="text-c-green-300">local</span>
+              Live <span className="text-c-purple-300">local</span>
             </h4>
 
             <h4 className="text-5xl font-medium text-white uppercase">
-              work <span className="text-c-green-300">local</span>
+              work <span className="text-c-purple-300">local</span>
             </h4>
 
-            <p className="pt-12 text-xl lg:text-right text-c-green-100">
+            <p className="pt-12 text-xl lg:text-right text-c-purple-100">
               COVID-19 has seen many changes in the way we live, not least the explosion in
               e-commerce and the desire to work locally. Most of us at Brixton Hive live within 5
               kilometres, and we all know the value of this.
@@ -171,12 +172,62 @@ const SplitSection = () => (
   </div>
 );
 
+const MapSection = () => (
+  <div className="relative flex items-center min-h-screen py-24 overflow-hidden bg-c-green-500">
+    <div className="relative z-10 w-full max-w-4xl mx-auto space-y-24">
+      <p className="text-6xl font-medium text-center text-white">18 Brixton Rise, Glen Iris.</p>
+
+      <div className="space-y-24">
+        <div className="flex flex-1">
+          {/* <iframe
+            loading="lazy"
+            allowFullScreen={false}
+            className="w-full h-48 border-none rounded-lg shadow-lg outline-none focus:outline-none lg:h-full"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.051252515417!2d145.05811321532002!3d-37.85909117974418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad641fb4cb88e39%3A0x35cc3e5d2725ce76!2s18%20Brixton%20Rise%2C%20Glen%20Iris%20VIC%203146!5e0!3m2!1sen!2sau!4v1616118717538!5m2!1sen!2sau"
+          /> */}
+          <div>
+            <Image
+              src="/images/map.png"
+              width="5761"
+              height="3449"
+              quality="100"
+              className="rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col flex-1">
+          <div className="space-y-8 text-lg text-c-brown-900">
+            <p>
+              Covid-19 has seen many changes in the way we live, not least the explosion in
+              e-commerce and the desire to work locally. Most of us at Brixton Hive live within 5
+              kilometres and we all know the value of this.
+            </p>
+            <p>
+              Brixton Hive will provide work, storage and creativity spaces with unparalleled
+              accessibility to the local community. We have an abundance of local parking, direct
+              access to the train line and bus services, Gardiners Creek Trail on our door step and
+              immediate access to the Monash freeway. Currently, it is a 15 minutes drive to the
+              CBD.
+            </p>
+            <p>
+              Working at the Hive allows small and start up businesses to collaborate with a diverse
+              range of people while also providing private space for each group to remain focussed
+              on innovation and growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
 const WeAreDifferent = () => (
-  <div className="relative min-h-screen py-24 overflow-hidden bg-c-brown-500">
+  <div className="relative flex items-center min-h-screen py-24 overflow-hidden bg-c-green-800">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 791.94 567.55"
-      className="absolute top-0 right-0 z-0 w-1/2 transform translate-x-10 -translate-y-10 opacity-40 text-c-brown-600"
+      className="absolute top-0 right-0 z-0 w-1/2 transform translate-x-10 -translate-y-48 text-c-green-600"
     >
       <path
         fill="none"
@@ -248,48 +299,30 @@ const WeAreDifferent = () => (
 
     <div className="relative z-10 w-full max-w-4xl mx-auto space-y-24">
       <p className="text-5xl font-medium text-center text-white">
-        We are different to any other co-work or storage space on purpose.
+        We are different to any other co-work or storage space... on purpose.
       </p>
 
       <div className="space-y-24 lg:flex lg:space-x-16 lg:space-y-0">
         <div className="flex flex-col flex-1 space-y-8">
-          <p className="text-lg text-c-brown-900">
-            Brixton Hive is a communal space divided into four functional zones that each include
-            different benefits.
-          </p>
-          <p className="text-lg text-c-brown-900">
-            Every tenant has unique needs, and we pride ourselves on being able to customise each
-            package to best suit the community member.
-          </p>
+          <div className="space-y-8 text-lg text-c-green-300">
+            <p>
+              Brixton Hive is divided into four functional zones that each include different
+              benefits. Every tenant has unique needs, and we pride ourselves on being able to
+              customise each package to best suit the community member.
+            </p>
 
-          <ul className="p-4 space-y-2 rounded-lg bg-c-brown-600">
-            {['Enterprise', 'Store', 'Work', 'Warehouse'].map((level, i) => (
-              <li key={level} className="flex items-center justify-between">
-                <p className="text-c-brown-300">Level {4 - i}</p>
-                <p className="text-lg font-medium text-white">{level}</p>
-              </li>
-            ))}
-          </ul>
+            <p>
+              We have all the equipment on site that you will need to receive your deliveries, be
+              that receiving parcels or boxes to unloading pallets from a truck or containers.
+            </p>
 
-          {/* <p>
-            We have all the equipment on site that you will need to receive your deliveries, be that
-            receiving parcels or boxes to unloading pallets from a truck or containers.
-          </p>
-          <p>
-            A community manager is onsite 9-5 weekdays to ensure the smooth running of this
-            workplace so you can be focussed on your work. We provide secure a monitored dispatch
-            space so you can leave your orders to be courier collected without needing to stay on
-            site.
-          </p> */}
-        </div>
-
-        <div className="flex flex-1">
-          <iframe
-            loading="lazy"
-            allowFullScreen={false}
-            className="w-full h-48 border-none rounded-lg shadow-lg outline-none focus:outline-none lg:h-full"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.051252515417!2d145.05811321532002!3d-37.85909117974418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad641fb4cb88e39%3A0x35cc3e5d2725ce76!2s18%20Brixton%20Rise%2C%20Glen%20Iris%20VIC%203146!5e0!3m2!1sen!2sau!4v1616118717538!5m2!1sen!2sau"
-          />
+            <p>
+              A community manager is onsite 9-5 weekdays to ensure the smooth running of this
+              workplace so you can be focussed on your work. We provide secure a monitored dispatch
+              space so you can leave your orders to be courier collected without needing to stay on
+              site.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -307,14 +340,12 @@ const Enterprise = () => {
   return (
     <div className="relative z-0 min-h-screen p-24 bg-white">
       <div className="w-full max-w-4xl mx-auto space-y-16">
-        <p className="absolute text-6xl font-medium text-gray-300 top-24 left-24">Level 4</p>
-
         <p className="text-5xl font-bold text-center text-gray-900">Enterprise</p>
 
         <div className="flex space-x-16">
-          <div className="flex-1 space-y-8">
+          <div className="flex-shrink-0 w-full max-w-md space-y-8">
             <p className="text-3xl font-medium text-gray-900">
-              Level 4 is your clean slate, ready to be tailored to your enterprise business needs
+              Your clean slate, ready to be tailored to your enterprise business needs
             </p>
 
             <div className="space-y-8 text-lg text-gray-700">
@@ -337,8 +368,8 @@ const Enterprise = () => {
             </div>
           </div>
 
-          <div className="w-full max-w-md space-y-8">
-            <div className="mr-12">
+          <div className="space-y-8">
+            <div>
               <Image
                 width="6000"
                 height="4000"
@@ -347,8 +378,7 @@ const Enterprise = () => {
                 className="rounded-lg shadow-lg"
               />
             </div>
-
-            <div className="ml-12">
+            <div>
               <Image
                 width="6000"
                 height="4000"
@@ -371,14 +401,17 @@ const Enterprise = () => {
 };
 
 const GetInTouch = () => (
-  <div id="get-in-touch" className="relative flex items-center w-full px-24 py-64 overflow-hidden">
+  <div
+    id="get-in-touch"
+    className="relative flex items-center w-full min-h-screen px-24 overflow-hidden"
+  >
     <div className="relative z-10 flex space-x-24 space-y-16">
       <div className="flex-1 space-y-8 text-5xl font-medium text-center text-white xl:text-left">
-        <p>Come say 👋</p>
+        <p>Get in touch</p>
         <p>Together, we will create the space you love.</p>
       </div>
 
-      <div className="flex items-center justify-between flex-shrink-0 p-8 space-x-8 bg-white rounded-lg shadow-lg">
+      <div className="flex items-center justify-between flex-shrink-0 p-8 space-x-8 rounded-lg shadow-lg bg-c-brown-200">
         <div className="flex-1">
           <p className="text-lg text-gray-500">Email us at</p>
           <a href="mailto:hello@brixtonhive.com.au" className="text-2xl font-medium">

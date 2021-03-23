@@ -7,14 +7,15 @@ export default function WorkStoreDispatch() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="relative w-full min-h-screen p-24 bg-c-blue-500">
-      <nav className="flex items-end justify-between">
-        <p className="text-6xl font-medium text-c-blue-800">
-          {activeTab === 0 && 'Level 2'}
-          {activeTab === 1 && 'Level 3'}
-          {activeTab === 2 && 'Level 1'}
-        </p>
-
+    <div
+      className={clsx(
+        'relative w-full min-h-screen p-24 transition',
+        activeTab === 0 && 'bg-c-green-500',
+        activeTab === 1 && 'bg-c-brown-500',
+        activeTab === 2 && 'bg-c-blue-500',
+      )}
+    >
+      <nav className="flex items-end justify-center">
         <div className="flex space-x-8">
           <Tab onClick={() => setActiveTab(0)} isActive={activeTab === 0}>
             Work
@@ -41,7 +42,7 @@ const WorkContent = () => {
   const spaceOptions = [
     { text: 'Private office', Icon: UserOutline },
     { text: 'Creative studio', Icon: LightBulbOutline },
-    { text: 'Dedicated open desks', Icon: UserGroupOutline },
+    { text: 'Dedicated and open desks', Icon: UserGroupOutline },
   ];
 
   const communualFacilities = [
@@ -51,39 +52,40 @@ const WorkContent = () => {
     'Function spaces',
     'Outdoor terrace with BBQ and bar',
     'Dedicated podcast room',
-    'Exclusive 7-day access',
+    // 'Exclusive 7-day access',
     'Flexible photography studio',
-    'Possible parking on-site',
+    'Convenient parking',
   ];
 
   return (
     <div className="flex items-center w-full max-w-4xl mx-auto space-x-8">
       <div className="space-y-8">
-        <p className="text-3xl font-medium text-white">
+        <p className="text-3xl font-medium text-c-green-900">
           Communal, private, or creative work spaces for everyone
         </p>
 
-        <p className="text-lg text-c-blue-200">
-          It’s all the rage: office and desk space with communal facilities. We aim to be the
-          greatest local option in this space with workspace options like:
+        <p className="text-lg text-c-green-800">
+          It’s all the rage: office and desk space with communal facilities. We are more than a
+          cluster of secure spaces, we're a place of mixed use, great diversity, and connectivity.
+          We even allow visitation of pets with approval from the community manager.
         </p>
 
         <div className="flex space-x-2">
           {spaceOptions.map(({ text, Icon }) => (
-            <div className="px-4 pt-4 pb-2 space-y-2 bg-white rounded-lg">
-              <Icon className="text-c-blue-500" />
+            <div className="flex-1 px-4 pt-4 pb-2 space-y-2 rounded-lg bg-c-green-200">
+              <Icon className="text-c-green-500" />
 
-              <p className="text-lg text-c-blue-900">{text}</p>
+              <p className="text-lg text-c-green-900">{text}</p>
             </div>
           ))}
         </div>
 
-        <p className="text-lg text-c-blue-200">
-          We also offer a variety of communal facilities to cater for specialised needs and promote
-          a vibrant atmosphere including:
+        <p className="text-lg text-c-green-800">
+          We also offer a variety of facilities and events to promote a vibrant atmosphere
+          including:
         </p>
 
-        <Options options={communualFacilities} className="text-white bg-c-blue-700" />
+        <Options options={communualFacilities} className="text-c-green-100 bg-c-green-700" />
       </div>
 
       <div className="flex-shrink-0 w-full max-w-sm">
@@ -106,32 +108,31 @@ const StoreContent = () => {
     'Exclusive 7-day access',
     'Short, medium, and long-term flexible spaces',
     'Keyless entry',
-    'Sizes starting at 1m3',
   ];
 
   return (
     <div className="flex items-center w-full max-w-4xl mx-auto space-x-8">
-      <div className="flex-shrink-0">
+      <div className="flex-shrink-0 w-full max-w-md">
         <Image
-          width="440"
-          height="330"
+          width="646"
+          height="800"
           quality="100"
-          src="/images/store.webp"
+          src="/images/StorageRoom.png"
           className="rounded-lg shadow-lg"
         />
       </div>
 
       <div className="space-y-8">
-        <p className="text-3xl font-medium text-white">Long-term storage</p>
+        <p className="text-3xl font-medium text-white">Self storage</p>
 
-        <p className="text-lg text-c-blue-200">
+        <p className="text-lg text-c-brown-900">
           Premium prices for land in Melbourne have many people opting for off-site storage. Our
           rates are highly competitive. Managed by friendly and engaging staff, supported by state
           of the art storage software. 1000m2 dedicated to individual storage units. Various sizes
           available, starting at 2.25m2.
         </p>
 
-        <Options options={options} className="text-white bg-c-blue-700" />
+        <Options options={options} className="text-white bg-c-brown-600" />
       </div>
     </div>
   );
@@ -140,7 +141,7 @@ const StoreContent = () => {
 const WarehouseContent = () => {
   const options = [
     'Fire rated',
-    '24/7 access',
+    '7 day access',
     'Sizes starting from 10m2',
     'Ground level vehicle access',
     'Monitored security',
@@ -160,14 +161,11 @@ const WarehouseContent = () => {
           dedicate awesome facilities that will help them run their ships like clockwork. Many of
           these trades use the warehousing in the early hours of the day, gather the tools they need
           for the day’s productivity, and return at the end of the day to secure their valuables.
-          {/* These new spaces will also enable desk space to keep the work out of the home, a solution
-              we know many tradies are currently seeking and we are truly delighted to be able to assist
-              in enhancing these businesses. Alongside that is the priceless benefit of collaboration. */}
         </p>
 
         <Options options={options} className="text-white bg-c-blue-700" />
 
-        <div className="p-6 space-y-2 bg-white rounded-lg shadow-lg">
+        <div className="p-6 space-y-2 rounded-lg shadow-lg bg-c-blue-200">
           <p className="text-2xl font-medium text-c-blue-900">E-commerce capabilities</p>
 
           <p className="text-c-blue-700">
@@ -197,7 +195,7 @@ const Tab = ({ children, isActive = false, ...rest }) => (
     className={clsx(
       'text-4xl py-4 border-b-4 transition',
       isActive ? 'border-white' : 'border-transparent',
-      isActive ? 'text-white' : 'text-c-blue-300 hover:text-white',
+      isActive ? 'text-white' : 'text-white opacity-50 hover:text-white',
     )}
     {...rest}
   >

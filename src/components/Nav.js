@@ -1,5 +1,5 @@
-import { useRouter } from 'next/router';
 import NextLink from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 export default function Nav() {
@@ -19,9 +19,9 @@ export default function Nav() {
       <nav className="fixed z-10 w-full bg-transparent pointer-events-none">
         <div className="px-16 pt-16">
           <div className="flex items-center justify-between">
-            <a href="#get-in-touch" className="pointer-events-auto text-c-green-900">
-              Get in touch
-            </a>
+            <NextLink href="/#get-in-touch" passHref>
+              <a className="pointer-events-auto text-c-green-900">Get in touch</a>
+            </NextLink>
 
             <a
               role="button"
@@ -37,9 +37,9 @@ export default function Nav() {
               >
                 <path
                   strokeWidth="2"
+                  d="M4 8h16M4 16h16"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M4 8h16M4 16h16"
                 />
               </svg>
             </a>
@@ -48,7 +48,7 @@ export default function Nav() {
       </nav>
 
       {isOpen && (
-        <div className="fixed top-0 left-0 z-20 w-full h-screen overflow-hidden bg-c-blue-light-500">
+        <div className="fixed top-0 left-0 z-20 w-full h-screen overflow-hidden bg-c-brown-500">
           <div className="absolute w-full bg-transparent pointer-events-none">
             <div className="flex justify-end px-16 pt-16">
               <a
