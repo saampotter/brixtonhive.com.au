@@ -50,6 +50,7 @@ const WorkContent = () => {
     'Meeting rooms',
     'Kitchen',
     'Function spaces',
+    'Events',
     'Outdoor terrace with BBQ and bar',
     'Dedicated podcast room',
     // 'Exclusive 7-day access',
@@ -65,7 +66,7 @@ const WorkContent = () => {
         </p>
 
         <p className="text-lg text-c-green-800">
-          It’s all the rage: office and desk space with communal facilities. We are more than a
+          It’s all the rage: office and desk space with communal facilities. The hive is more than a
           cluster of secure spaces, we're a place of mixed use, great diversity, and connectivity.
           We even allow visitation of pets with approval from the community manager.
         </p>
@@ -81,8 +82,7 @@ const WorkContent = () => {
         </div>
 
         <p className="text-lg text-c-green-800">
-          We also offer a variety of facilities and events to promote a vibrant atmosphere
-          including:
+          There are a variety of facilities and events to promote a vibrant atmosphere including:
         </p>
 
         <Options options={communualFacilities} className="text-c-green-100 bg-c-green-700" />
@@ -123,13 +123,13 @@ const StoreContent = () => {
       </div>
 
       <div className="space-y-8">
-        <p className="text-3xl font-medium text-white">Self storage</p>
+        <p className="text-3xl font-medium text-white">Affordable self storage</p>
 
         <p className="text-lg text-c-brown-900">
-          Premium prices for land in Melbourne have many people opting for off-site storage. Our
-          rates are highly competitive. Managed by friendly and engaging staff, supported by state
-          of the art storage software. 1000m2 dedicated to individual storage units. Various sizes
-          available, starting at 2.25m2.
+          Premium prices for land in Melbourne have many people opting for off-site storage.{' '}
+          <b>Our rates are highly competitive.</b> Managed by friendly and engaging staff, supported
+          by state of the art storage software. 1000m2 dedicated to individual storage units.
+          Various sizes available, starting at 2.25m2.
         </p>
 
         <Options options={options} className="text-white bg-c-brown-600" />
@@ -153,7 +153,8 @@ const WarehouseContent = () => {
     <div className="flex items-center w-full max-w-4xl mx-auto space-x-8">
       <div className="space-y-8">
         <p className="text-3xl font-medium text-white">
-          Short-term, secure storage of items for easy pick-up and drop-off
+          {/* Short-term, secure storage of items for easy pick-up and drop-off */}
+          Warehouse
         </p>
 
         <p className="text-lg text-c-blue-200">

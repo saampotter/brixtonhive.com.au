@@ -59,7 +59,7 @@ const WhoWeAre = () => (
 
     <svg
       viewBox="0 0 791.94 567.55"
-      className="absolute bottom-0 left-0 z-0 w-1/2 transform -translate-x-10 translate-y-10 opacity-40 text-c-blue-600"
+      className="absolute bottom-0 left-0 z-0 w-1/2 transform -translate-x-10 translate-y-10 text-c-blue-600"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -147,9 +147,8 @@ const SplitSection = () => (
             </h4>
 
             <p className="pt-12 text-xl lg:text-right text-c-purple-100">
-              COVID-19 has seen many changes in the way we live, not least the explosion in
-              e-commerce and the desire to work locally. Most of us at Brixton Hive live within 5
-              kilometres, and we all know the value of this.
+              A place that is home to a community of great humans reflecting a positive, inclusive
+              and diverse culture
             </p>
           </div>
         </div>
@@ -179,12 +178,6 @@ const MapSection = () => (
 
       <div className="space-y-24">
         <div className="flex flex-1">
-          {/* <iframe
-            loading="lazy"
-            allowFullScreen={false}
-            className="w-full h-48 border-none rounded-lg shadow-lg outline-none focus:outline-none lg:h-full"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.051252515417!2d145.05811321532002!3d-37.85909117974418!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad641fb4cb88e39%3A0x35cc3e5d2725ce76!2s18%20Brixton%20Rise%2C%20Glen%20Iris%20VIC%203146!5e0!3m2!1sen!2sau!4v1616118717538!5m2!1sen!2sau"
-          /> */}
           <div>
             <Image
               src="/images/map.png"
@@ -312,15 +305,15 @@ const WeAreDifferent = () => (
             </p>
 
             <p>
-              We have all the equipment on site that you will need to receive your deliveries, be
-              that receiving parcels or boxes to unloading pallets from a truck or containers.
-            </p>
-
-            <p>
               A community manager is onsite 9-5 weekdays to ensure the smooth running of this
               workplace so you can be focussed on your work. We provide secure a monitored dispatch
               space so you can leave your orders to be courier collected without needing to stay on
               site.
+            </p>
+
+            <p>
+              We have all the equipment on site that you will need to receive your deliveries, be
+              that receiving parcels or boxes to unloading pallets from a truck or containers.
             </p>
           </div>
         </div>
@@ -430,7 +423,7 @@ const GetInTouch = () => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 892.04 906.92"
-      className="absolute z-0 w-1/2 opacity-50 right-28 text-c-brown-600"
+      className="absolute z-0 w-1/2 right-28 text-c-brown-600"
     >
       <path
         fill="none"
