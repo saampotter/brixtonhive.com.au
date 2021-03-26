@@ -15,13 +15,13 @@ export default function OurValues() {
 
         <Container>
           <ContentContainer>
-            <div className="flex space-x-4">
+            <div className="space-y-8 lg:space-y-0 lg:space-x-4 lg:flex">
               <div className="flex-1">
-                <h1 className="text-6xl font-bold text-white">Our Values</h1>
+                <h1 className="text-4xl font-bold text-white lg:text-6xl">Our Values</h1>
               </div>
 
               <div className="flex-1">
-                <div className="space-y-16 text-xl font-medium text-c-brown-800">
+                <div className="space-y-8 text-xl font-medium lg:space-y-16 text-c-brown-800">
                   <p>
                     We endeavour to be a place that is home to a community of great humans
                     reflecting a positive, inclusive and diverse culture. The Brixton Hive family
@@ -107,7 +107,7 @@ export default function OurValues() {
       </Container>
 
       <Container>
-        <div>
+        <div className="space-y-24">
           <ContentContainer>
             <div className="flex-shrink-0 w-full max-w-sm">
               <Image
