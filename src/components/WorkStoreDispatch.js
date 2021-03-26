@@ -2,39 +2,48 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { useState } from 'react';
 import { LightBulbOutline, UserGroupOutline, UserOutline } from 'heroicons-react';
+import Container from './Container';
+
+const ContentContainer = ({ children }) => (
+  <div className="w-full max-w-4xl mx-auto space-y-8 lg:space-y-0 lg:space-x-8 lg:flex lg:items-center">
+    {children}
+  </div>
+);
 
 export default function WorkStoreDispatch() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div
+    <Container
       className={clsx(
-        'relative w-full min-h-screen p-24 transition',
+        'transition',
         activeTab === 0 && 'bg-c-green-500',
         activeTab === 1 && 'bg-c-brown-500',
         activeTab === 2 && 'bg-c-blue-500',
       )}
     >
-      <nav className="flex items-end justify-center">
-        <div className="flex space-x-8">
+      <div>
+        <nav className="flex items-end justify-between max-w-md px-6 mx-auto ">
           <Tab onClick={() => setActiveTab(0)} isActive={activeTab === 0}>
             Work
           </Tab>
+
           <Tab onClick={() => setActiveTab(1)} isActive={activeTab === 1}>
             Store
           </Tab>
+
           <Tab onClick={() => setActiveTab(2)} isActive={activeTab === 2}>
             Warehouse
           </Tab>
-        </div>
-      </nav>
+        </nav>
 
-      <div className="py-24">
-        {activeTab === 0 && <WorkContent />}
-        {activeTab === 1 && <StoreContent />}
-        {activeTab === 2 && <WarehouseContent />}
+        <div className="py-8 lg:py-24">
+          {activeTab === 0 && <WorkContent />}
+          {activeTab === 1 && <StoreContent />}
+          {activeTab === 2 && <WarehouseContent />}
+        </div>
       </div>
-    </div>
+    </Container>
   );
 }
 
@@ -59,9 +68,9 @@ const WorkContent = () => {
   ];
 
   return (
-    <div className="flex items-center w-full max-w-4xl mx-auto space-x-8">
+    <ContentContainer>
       <div className="space-y-8">
-        <p className="text-3xl font-medium text-c-green-900">
+        <p className="text-3xl font-medium text-white">
           Communal, private, or creative work spaces for everyone
         </p>
 
@@ -73,7 +82,7 @@ const WorkContent = () => {
 
         <div className="flex space-x-2">
           {spaceOptions.map(({ text, Icon }) => (
-            <div className="flex-1 px-4 pt-4 pb-2 space-y-2 rounded-lg bg-c-green-200">
+            <div className="flex flex-col justify-between flex-1 px-4 py-4 space-y-2 rounded-lg bg-c-green-200">
               <Icon className="text-c-green-500" />
 
               <p className="text-lg text-c-green-900">{text}</p>
@@ -88,7 +97,7 @@ const WorkContent = () => {
         <Options options={communualFacilities} className="text-c-green-100 bg-c-green-700" />
       </div>
 
-      <div className="flex-shrink-0 w-full max-w-sm">
+      <div className="flex-grow max-w-sm">
         <Image
           width="3334"
           quality="100"
@@ -97,7 +106,7 @@ const WorkContent = () => {
           className="rounded-lg shadow-lg"
         />
       </div>
-    </div>
+    </ContentContainer>
   );
 };
 
@@ -111,17 +120,7 @@ const StoreContent = () => {
   ];
 
   return (
-    <div className="flex items-center w-full max-w-4xl mx-auto space-x-8">
-      <div className="flex-shrink-0 w-full max-w-md">
-        <Image
-          width="646"
-          height="800"
-          quality="100"
-          src="/images/StorageRoom.png"
-          className="rounded-lg shadow-lg"
-        />
-      </div>
-
+    <ContentContainer>
       <div className="space-y-8">
         <p className="text-3xl font-medium text-white">Affordable self storage</p>
 
@@ -134,7 +133,19 @@ const StoreContent = () => {
 
         <Options options={options} className="text-white bg-c-brown-600" />
       </div>
-    </div>
+
+      <div className="flex-shrink-0 w-full max-w-sm">
+        <div>
+          <Image
+            width="646"
+            height="800"
+            quality="100"
+            src="/images/StorageRoom.png"
+            className="rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+    </ContentContainer>
   );
 };
 
@@ -150,7 +161,7 @@ const WarehouseContent = () => {
   ];
 
   return (
-    <div className="flex items-center w-full max-w-4xl mx-auto space-x-8">
+    <ContentContainer>
       <div className="space-y-8">
         <p className="text-3xl font-medium text-white">
           {/* Short-term, secure storage of items for easy pick-up and drop-off */}
@@ -186,15 +197,16 @@ const WarehouseContent = () => {
           className="rounded-lg shadow-lg"
         />
       </div>
-    </div>
+    </ContentContainer>
   );
 };
 
 const Tab = ({ children, isActive = false, ...rest }) => (
   <a
     role="button"
+    style={{ WebkitTapHighlightColor: 'transparent' }}
     className={clsx(
-      'text-4xl py-4 border-b-4 transition',
+      'text-2xl lg:text-4xl pb-2 lg:pb-4 border-b-4 transition',
       isActive ? 'border-white' : 'border-transparent',
       isActive ? 'text-white' : 'text-white opacity-50 hover:text-white',
     )}

@@ -2,11 +2,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../components/Logo';
 import TextLogo from '../components/TextLogo';
+import Container from '../components/Container';
 import WorkStoreDispatch from '../components/WorkStoreDispatch';
 
 export default function Index() {
   return (
-    <>
+    <div className="overflow-hidden">
       <Hero />
       <WhoWeAre />
       <SplitSection />
@@ -15,36 +16,34 @@ export default function Index() {
       <WorkStoreDispatch />
       <Enterprise />
       <GetInTouch />
-    </>
+    </div>
   );
 }
 
 const Hero = () => (
-  <div className="relative w-full h-screen bg-c-blue-light-500">
-    <div className="flex items-center justify-center h-full">
-      <div className="flex flex-col items-center w-full space-y-12">
-        <div className="w-full max-w-lg">
-          <Logo />
-        </div>
+  <Container className="bg-c-blue-light-500">
+    <div className="flex flex-col items-center w-full space-y-8">
+      <div className="w-64 max-w-md lg:w-full">
+        <Logo />
+      </div>
 
-        <div className="w-full max-w-2xl">
-          <TextLogo />
-        </div>
+      <div className="w-64 max-w-xl lg:w-full">
+        <TextLogo />
       </div>
     </div>
-  </div>
+  </Container>
 );
 
 const WhoWeAre = () => (
-  <div className="relative flex items-center min-h-screen py-24 pb-64 overflow-hidden text-center bg-c-blue-500">
-    <div className="relative z-10 w-full max-w-2xl mx-auto space-y-12">
+  <Container className="bg-c-blue-500">
+    <div className="relative z-10 w-full max-w-2xl mx-auto space-y-12 text-center">
       <p className="text-base font-medium tracking-wide uppercase text-c-blue-300">Who we are</p>
 
-      <h2 className="text-5xl font-medium text-white">
+      <h2 className="text-4xl font-medium text-white lg:text-5xl">
         Brixton Hive is a community for work and innovation, storage and creation.
       </h2>
 
-      <h3 className="pt-4 text-lg text-c-blue-300">
+      <h3 className="text-lg text-c-blue-300">
         Home to thriving e-commerce, small businesses and community groups. Brixton Hive takes
         responsibility of services that can be shared and externally managed so you can focus on
         what you do best and enjoy most.
@@ -59,7 +58,7 @@ const WhoWeAre = () => (
 
     <svg
       viewBox="0 0 791.94 567.55"
-      className="absolute bottom-0 left-0 z-0 w-1/2 transform -translate-x-10 translate-y-10 text-c-blue-600"
+      className="absolute bottom-0 left-0 z-0 transform -translate-x-10 translate-y-10 lg:w-1/2 text-c-blue-600"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -129,20 +128,20 @@ const WhoWeAre = () => (
         d="M598.68,393c-3.08,1.77-5.93,5.38-5.93,8.93V503.72a10,10,0,0,0,5,8.61l88.14,50.89a9.94,9.94,0,0,0,10,0L784,512.33a9.94,9.94,0,0,0,5-8.61V401.93a9.93,9.93,0,0,0-5-8.61l-88.15-50.89c-3.08-1.78-7.58-1.14-10.66.64"
       />
     </svg>
-  </div>
+  </Container>
 );
 
 const SplitSection = () => (
   <div className="lg:flex lg:min-h-screen">
-    <div className="flex-1 px-24 py-24 lg:py-0 bg-c-purple-500">
+    <Container className="flex-1 lg:px-24 bg-c-purple-500">
       <div className="flex items-center justify-center h-full">
         <div className="flex flex-col items-center">
           <div className="flex flex-col space-y-1 lg:items-end">
-            <h4 className="text-5xl font-medium text-white uppercase">
+            <h4 className="text-4xl font-medium text-white uppercase lg:text-5xl">
               Live <span className="text-c-purple-300">local</span>
             </h4>
 
-            <h4 className="text-5xl font-medium text-white uppercase">
+            <h4 className="text-4xl font-medium text-white uppercase lg:text-5xl">
               work <span className="text-c-purple-300">local</span>
             </h4>
 
@@ -153,74 +152,71 @@ const SplitSection = () => (
           </div>
         </div>
       </div>
-    </div>
+    </Container>
 
-    <div className="flex-1 px-24 py-24 lg:py-0 bg-c-purple-400">
+    <Container className="flex-1 lg:px-24 bg-c-purple-400">
       <div className="flex flex-col justify-center h-full space-y-12">
-        <p className="text-4xl font-medium text-c-purple-200">
+        <p className="text-3xl font-medium lg:text-4xl text-c-purple-200">
           We believe humanity is at its best when we feel{' '}
           <span className="text-white">deeply connected to a community.</span>
         </p>
 
-        <p className="text-4xl font-medium text-c-purple-200">
+        <p className="text-3xl font-medium lg:text-4xl text-c-purple-200">
           At Brixton Hive you will certainly benefit from{' '}
           <span className="text-white">our inclusive culture.</span>
         </p>
       </div>
-    </div>
+    </Container>
   </div>
 );
 
 const MapSection = () => (
-  <div className="relative flex items-center min-h-screen py-24 overflow-hidden bg-c-green-500">
-    <div className="relative z-10 w-full max-w-4xl mx-auto space-y-24">
-      <p className="text-6xl font-medium text-center text-white">18 Brixton Rise, Glen Iris.</p>
+  <Container className="bg-c-green-500">
+    <div className="relative z-10 w-full max-w-4xl mx-auto space-y-8 lg:space-y-24">
+      <p className="text-3xl font-medium text-center text-white lg:text-6xl">
+        18 Brixton Rise, Glen Iris.
+      </p>
 
-      <div className="space-y-24">
-        <div className="flex flex-1">
-          <div>
-            <Image
-              src="/images/map.png"
-              width="5761"
-              height="3449"
-              quality="100"
-              className="rounded-lg shadow-lg"
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-col flex-1">
-          <div className="space-y-8 text-lg text-c-brown-900">
-            <p>
-              Covid-19 has seen many changes in the way we live, not least the explosion in
-              e-commerce and the desire to work locally. Most of us at Brixton Hive live within 5
-              kilometres and we all know the value of this.
-            </p>
-            <p>
-              Brixton Hive will provide work, storage and creativity spaces with unparalleled
-              accessibility to the local community. We have an abundance of local parking, direct
-              access to the train line and bus services, Gardiners Creek Trail on our door step and
-              immediate access to the Monash freeway. Currently, it is a 15 minutes drive to the
-              CBD.
-            </p>
-            <p>
-              Working at the Hive allows small and start up businesses to collaborate with a diverse
-              range of people while also providing private space for each group to remain focussed
-              on innovation and growth.
-            </p>
-          </div>
+      <div className="flex-grow">
+        <div>
+          <Image
+            src="/images/map.png"
+            width="5761"
+            height="3449"
+            quality="100"
+            className="rounded-lg shadow-lg"
+          />
         </div>
       </div>
+
+      <div className="space-y-8 text-lg text-c-green-800">
+        <p>
+          Covid-19 has seen many changes in the way we live, not least the explosion in e-commerce
+          and the desire to work locally. Most of us at Brixton Hive live within 5 kilometres and we
+          all know the value of this.
+        </p>
+        <p>
+          Brixton Hive will provide work, storage and creativity spaces with unparalleled
+          accessibility to the local community. We have an abundance of local parking, direct access
+          to the train line and bus services, Gardiners Creek Trail on our door step and immediate
+          access to the Monash freeway. Currently, it is a 15 minutes drive to the CBD.
+        </p>
+        <p>
+          Working at the Hive allows small and start up businesses to collaborate with a diverse
+          range of people while also providing private space for each group to remain focussed on
+          innovation and growth.
+        </p>
+      </div>
     </div>
-  </div>
+  </Container>
 );
 
 const WeAreDifferent = () => (
-  <div className="relative flex items-center min-h-screen py-24 overflow-hidden bg-c-green-800">
+  <Container className="bg-c-green-800">
     <svg
-      xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 791.94 567.55"
-      className="absolute top-0 right-0 z-0 w-1/2 transform translate-x-10 -translate-y-48 text-c-green-600"
+      xmlns="http://www.w3.org/2000/svg"
+      className="absolute bottom-0 right-0 z-0 w-1/2 transform transform-x lg:translate-x-10 text-c-green-700"
     >
       <path
         fill="none"
@@ -290,8 +286,8 @@ const WeAreDifferent = () => (
       />
     </svg>
 
-    <div className="relative z-10 w-full max-w-4xl mx-auto space-y-24">
-      <p className="text-5xl font-medium text-center text-white">
+    <div className="relative z-10 max-w-4xl mx-auto space-y-8 lg:space-y-24">
+      <p className="text-3xl font-medium text-center text-white lg:text-5xl">
         We are different to any other co-work or storage space... on purpose.
       </p>
 
@@ -303,14 +299,12 @@ const WeAreDifferent = () => (
               benefits. Every tenant has unique needs, and we pride ourselves on being able to
               customise each package to best suit the community member.
             </p>
-
             <p>
               A community manager is onsite 9-5 weekdays to ensure the smooth running of this
               workplace so you can be focussed on your work. We provide secure a monitored dispatch
               space so you can leave your orders to be courier collected without needing to stay on
               site.
             </p>
-
             <p>
               We have all the equipment on site that you will need to receive your deliveries, be
               that receiving parcels or boxes to unloading pallets from a truck or containers.
@@ -319,7 +313,7 @@ const WeAreDifferent = () => (
         </div>
       </div>
     </div>
-  </div>
+  </Container>
 );
 
 const Enterprise = () => {
@@ -331,12 +325,12 @@ const Enterprise = () => {
   ];
 
   return (
-    <div className="relative z-0 min-h-screen p-24 bg-white">
+    <Container className="bg-white">
       <div className="w-full max-w-4xl mx-auto space-y-16">
-        <p className="text-5xl font-bold text-center text-gray-900">Enterprise</p>
+        <p className="text-4xl font-bold text-center text-gray-900 lg:text-5xl">Enterprise</p>
 
-        <div className="flex space-x-16">
-          <div className="flex-shrink-0 w-full max-w-md space-y-8">
+        <div className="space-y-16 lg:flex lg:items-center lg:space-x-16 lg:space-y-0">
+          <div className="w-full space-y-8">
             <p className="text-3xl font-medium text-gray-900">
               Your clean slate, ready to be tailored to your enterprise business needs
             </p>
@@ -361,7 +355,7 @@ const Enterprise = () => {
             </div>
           </div>
 
-          <div className="space-y-8">
+          <div className="flex-grow max-w-md space-y-8">
             <div>
               <Image
                 width="6000"
@@ -383,47 +377,22 @@ const Enterprise = () => {
           </div>
         </div>
 
-        <div className="flex space-x-4">
+        <div className="flex flex-wrap space-y-2 lg:space-y-0 lg:space-x-4 lg:flex-nowrap">
           {options.map(option => (
             <div className="px-4 py-2 text-gray-900 bg-gray-100 rounded-md">{option}</div>
           ))}
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
 const GetInTouch = () => (
-  <div
-    id="get-in-touch"
-    className="relative flex items-center w-full min-h-screen px-24 overflow-hidden"
-  >
-    <div className="relative z-10 flex space-x-24 space-y-16">
-      <div className="flex-1 space-y-8 text-5xl font-medium text-center text-white xl:text-left">
-        <p>Get in touch</p>
-        <p>Together, we will create the space you love.</p>
-      </div>
-
-      <div className="flex items-center justify-between flex-shrink-0 p-8 space-x-8 rounded-lg shadow-lg bg-c-brown-200">
-        <div className="flex-1">
-          <p className="text-lg text-gray-500">Email us at</p>
-          <a href="mailto:hello@brixtonhive.com.au" className="text-2xl font-medium">
-            hello@brixtonhive.com.au
-          </a>
-        </div>
-        <div className="flex-1">
-          <p className="text-lg text-gray-500">Or give us a call on</p>
-          <a href="tel:0420545024" className="text-2xl font-medium">
-            0420 545 024
-          </a>
-        </div>
-      </div>
-    </div>
-
+  <Container id="get-in-touch">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 892.04 906.92"
-      className="absolute z-0 w-1/2 right-28 text-c-brown-600"
+      className="absolute z-0 lg:w-1/2 right-28 text-c-brown-600"
     >
       <path
         fill="none"
@@ -489,5 +458,30 @@ const GetInTouch = () => (
         d="M193.46,224.47c3.08,1.77,7.62,2.43,10.7.66l88.15-50.89a9.94,9.94,0,0,0,5-8.62V63.84a10,10,0,0,0-5-8.62L204.16,4.33a10,10,0,0,0-9.95,0L106.07,55.22a10,10,0,0,0-5,8.62V165.62c0,3.56,2.81,7.14,5.89,8.92"
       />
     </svg>
-  </div>
+
+    <div className="relative z-10 w-full max-w-4xl space-y-24">
+      <div className="space-y-8 text-3xl font-medium text-center text-white lg:text-5xl">
+        <p>
+          Get in touch
+          <br />
+          Together, we will create the space you love.
+        </p>
+      </div>
+
+      <div className="flex-shrink-0 p-8 space-y-4 rounded-lg shadow-lg lg:space-y-0 lg:space-x-8 lg:flex lg:items-center lg:justify-between bg-c-brown-200">
+        <div className="flex-1">
+          <p className="text-lg text-gray-500">Email us at</p>
+          <a href="mailto:hello@brixtonhive.com.au" className="text-2xl font-medium">
+            hello@brixtonhive.com.au
+          </a>
+        </div>
+        <div className="flex-1">
+          <p className="text-lg text-gray-500">Or give us a call on</p>
+          <a href="tel:0420545024" className="text-2xl font-medium">
+            0420 545 024
+          </a>
+        </div>
+      </div>
+    </div>
+  </Container>
 );

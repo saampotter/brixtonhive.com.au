@@ -16,45 +16,45 @@ export default function Nav() {
 
   return (
     <>
-      <nav className="fixed z-10 w-full bg-transparent pointer-events-none">
-        <div className="px-16 pt-16">
-          <div className="flex items-center justify-between">
-            <NextLink href="/#get-in-touch" passHref>
-              <a className="pointer-events-auto text-c-green-900">Get in touch</a>
-            </NextLink>
-
-            <a
-              role="button"
-              onClick={() => setIsOpen(true)}
-              className="flex items-center justify-center w-12 h-12 rounded-full pointer-events-auto bg-c-green-900"
-            >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="w-6 h-6 text-white"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeWidth="2"
-                  d="M4 8h16M4 16h16"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+      <nav className="fixed z-10 w-full p-4 bg-transparent pointer-events-none lg:p-16">
+        <div className="flex items-center justify-between">
+          <NextLink href="/#get-in-touch" passHref>
+            <a className="p-3 px-4 bg-white rounded-full shadow-lg pointer-events-auto text-c-green-900">
+              Get in touch
             </a>
-          </div>
+          </NextLink>
+
+          <a
+            role="button"
+            onClick={() => setIsOpen(true)}
+            className="flex items-center justify-center p-3 rounded-full shadow-lg pointer-events-auto bg-c-green-900"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-6 h-6 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeWidth="2"
+                d="M4 8h16M4 16h16"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </a>
         </div>
       </nav>
 
       {isOpen && (
         <div className="fixed top-0 left-0 z-20 w-full h-screen overflow-hidden bg-c-brown-500">
           <div className="absolute w-full bg-transparent pointer-events-none">
-            <div className="flex justify-end px-16 pt-16">
+            <div className="flex justify-end p-4 lg:p-16">
               <a
                 role="button"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center w-12 h-12 rounded-full pointer-events-auto bg-c-green-900"
+                className="flex items-center justify-center p-3 rounded-full shadow-lg pointer-events-auto bg-c-green-900"
               >
                 <svg
                   fill="none"
@@ -75,7 +75,7 @@ export default function Nav() {
           </div>
 
           <div className="flex items-center justify-center w-full h-full">
-            <nav className="flex flex-col items-center space-y-8">
+            <nav className="flex flex-col items-center space-y-6 lg:space-y-8">
               <Link href="/">Home</Link>
               <Link href="/our-values">Our values</Link>
               <Link href="/#get-in-touch">Get in touch</Link>
@@ -89,6 +89,6 @@ export default function Nav() {
 
 const Link = ({ href, children }) => (
   <NextLink href={href} passHref>
-    <a className="text-6xl font-bold">{children}</a>
+    <a className="text-4xl font-bold lg:text-6xl">{children}</a>
   </NextLink>
 );
