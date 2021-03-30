@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 
-import 'tailwindcss/tailwind.css';
+import '../tailwind.css';
 import seoConfig from '../../seo.config';
 import Nav from '../components/Nav';
 

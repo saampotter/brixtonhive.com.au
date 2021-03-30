@@ -1,7 +1,12 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   purge: ['./src/**/*.js'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Museo Sans', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         'c-yellow': {
           50: '#fffefa',
@@ -90,20 +95,4 @@ module.exports = {
       },
     },
   },
-  variants: {},
-  plugins: [
-    ({ addBase }) => {
-      addBase([
-        {
-          '@font-face': {
-            fontFamily: 'Inter',
-            fontWeight: '100 900',
-            fontStyle: 'normal',
-            fontDisplay: 'optional',
-            src: 'url("/fonts/inter-var-latin.woff2") format("woff2")',
-          },
-        },
-      ]);
-    },
-  ],
 };

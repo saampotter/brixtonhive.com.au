@@ -1,11 +1,6 @@
 import Image from 'next/image';
 import Container from '../components/Container';
-
-const ContentContainer = ({ children }) => (
-  <div className="w-full max-w-4xl mx-auto space-y-8 lg:space-y-0 lg:space-x-8 lg:flex lg:items-center">
-    {children}
-  </div>
-);
+import ContentContainer from '../components/ContentContainer';
 
 export default function OurValues() {
   return (
@@ -13,7 +8,7 @@ export default function OurValues() {
       <div className="relative">
         <Svg />
 
-        <Container>
+        <Container className="bg-c-brown-500">
           <ContentContainer>
             <div className="space-y-8 lg:space-y-0 lg:space-x-4 lg:flex">
               <div className="flex-1">
@@ -22,11 +17,15 @@ export default function OurValues() {
 
               <div className="flex-1">
                 <div className="space-y-8 text-xl font-medium lg:space-y-16 text-c-brown-800">
-                  <p>
+                  <p className="text-2xl text-c-brown-200">
                     We endeavour to be a place that is home to a community of great humans
-                    reflecting a positive, inclusive and diverse culture. The Brixton Hive family
-                    strives to empower others, simplify the complexities of running businesses and
-                    life and live harmoniously in the environment we are current custodians of.
+                    reflecting a positive, inclusive and diverse culture.
+                  </p>
+
+                  <p>
+                    The Brixton Hive family strives to empower others, simplify the complexities of
+                    running businesses and life and live harmoniously in the environment we are
+                    current custodians of.
                   </p>
                   <p>
                     We acknowledge the original custodians of this land, the Wurundjeri people who
@@ -48,7 +47,7 @@ export default function OurValues() {
           <div className="space-y-8">
             <h2 className="text-3xl font-medium text-white">Caring for our environment</h2>
 
-            <div className="space-y-8 text-c-green-800">
+            <div className="space-y-8 text-lg text-c-green-800">
               <p>
                 Our Environment is of paramount importance to us and high on our values list. We
                 have worked towards and will continue to strive to make our environment as
@@ -122,7 +121,7 @@ export default function OurValues() {
             <div className="space-y-8">
               <h2 className="text-2xl font-medium text-white">Giving Back</h2>
 
-              <p className="text-c-brown-800">
+              <p className="text-lg text-c-brown-800">
                 We appreciate it is difficult to get started in new business. We consider short term
                 scholarships to help start-ups get underway. We also value the in-put to humanity
                 that non-for-profits provide and partner with several organisations. Please talk to
@@ -135,7 +134,7 @@ export default function OurValues() {
             <div className="space-y-8">
               <h2 className="text-2xl font-medium text-white">The Importance of Design</h2>
 
-              <div className="space-y-8 text-c-brown-800">
+              <div className="space-y-8 text-lg text-c-brown-800">
                 <p>
                   We have spent years developing an understanding of 18 Brixton Rise and have
                   applied holistic and dynamic strategies in each stage of its expansion.

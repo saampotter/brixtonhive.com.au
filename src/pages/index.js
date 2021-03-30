@@ -1,142 +1,164 @@
-import Link from 'next/link';
+import clsx from 'clsx';
 import Image from 'next/image';
+import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import { LightBulbOutline, UserGroupOutline, UserOutline } from 'heroicons-react';
+
 import Logo from '../components/Logo';
+import Button from '../components/Button';
 import TextLogo from '../components/TextLogo';
 import Container from '../components/Container';
-import WorkStoreDispatch from '../components/WorkStoreDispatch';
+import ContentContainer from '../components/ContentContainer';
 
 export default function Index() {
   return (
     <div className="overflow-hidden">
       <Hero />
-      <WhoWeAre />
       <SplitSection />
       <MapSection />
-      <WeAreDifferent />
-      <WorkStoreDispatch />
+      <Work />
+      <Store />
+      <Warehouse />
       <Enterprise />
       <GetInTouch />
     </div>
   );
 }
 
-const Hero = () => (
-  <Container className="bg-c-blue-light-500">
-    <div className="flex flex-col items-center w-full space-y-8">
-      <div className="w-64 max-w-md lg:w-full">
-        <Logo />
-      </div>
+const Hero = () => {
+  const inputs = [0.04, 0.06];
+  const { scrollYProgress } = useViewportScroll();
+  const svgColor = useTransform(scrollYProgress, inputs, ['#80BEC2', '#243C4E']);
+  const backgroundColor = useTransform(scrollYProgress, inputs, ['#8ED3D7', '#284357']);
+  const textColor = useTransform(scrollYProgress, inputs, ['#466769', '#a9b4bc']);
 
-      <div className="w-64 max-w-xl lg:w-full">
-        <TextLogo />
-      </div>
-    </div>
-  </Container>
-);
+  return (
+    <motion.div style={{ backgroundColor }}>
+      <Container>
+        <div className="pb-48 space-y-64">
+          <div className="flex flex-col items-center w-full space-y-8">
+            <div className="w-64 max-w-md lg:w-full">
+              <Logo />
+            </div>
+            <div className="w-64 max-w-xl lg:w-full">
+              <TextLogo />
+            </div>
+          </div>
+          <div className="relative z-10 w-full max-w-2xl mx-auto space-y-12 text-center">
+            <motion.p
+              style={{ color: textColor }}
+              className="text-base font-medium tracking-wide uppercase"
+            >
+              Who we are
+            </motion.p>
 
-const WhoWeAre = () => (
-  <Container className="bg-c-blue-500">
-    <div className="relative z-10 w-full max-w-2xl mx-auto space-y-12 text-center">
-      <p className="text-base font-medium tracking-wide uppercase text-c-blue-300">Who we are</p>
+            <h2 className="text-4xl font-medium text-white lg:text-5xl">
+              Brixton Hive is a community for work and innovation, storage and creation.
+            </h2>
 
-      <h2 className="text-4xl font-medium text-white lg:text-5xl">
-        Brixton Hive is a community for work and innovation, storage and creation.
-      </h2>
+            <motion.h3 style={{ color: textColor }} className="text-lg">
+              Home to thriving e-commerce, small businesses and community groups. Brixton Hive takes
+              responsibility of services that can be shared and externally managed so you can focus
+              on what you do best and enjoy most.
+            </motion.h3>
 
-      <h3 className="text-lg text-c-blue-300">
-        Home to thriving e-commerce, small businesses and community groups. Brixton Hive takes
-        responsibility of services that can be shared and externally managed so you can focus on
-        what you do best and enjoy most.
-      </h3>
+            <Button href="/our-values">Our values</Button>
+          </div>
 
-      <Link href="/our-values" passHref>
-        <a className="inline-block w-48 p-4 text-lg transition bg-white rounded-full shadow-lg text-c-blue-900 transform-gpu hover:scale-95">
-          Our values
-        </a>
-      </Link>
-    </div>
+          <motion.svg
+            style={{ color: svgColor }}
+            viewBox="0 0 791.94 567.55"
+            xmlns="http://www.w3.org/2000/svg"
+            className="absolute bottom-0 left-0 z-0 transform -translate-x-10 lg:w-1/2"
+          >
+            <path
+              fill="none"
+              strokeWidth="6"
+              stroke="currentColor"
+              strokeLinecap="round"
+              d="M299.27,231.85c0-3.55-2.25-6-5.33-7.78L205.8,173.18a9.94,9.94,0,0,0-10,0L107.7,224.07a10,10,0,0,0-5,8.61V334.46a10,10,0,0,0,5,8.62L195.85,394a9.94,9.94,0,0,0,10,0l88.14-50.89c3.08-1.78,5.12-7.29,5.12-10.84"
+            />
+            <path
+              fill="none"
+              strokeWidth="6"
+              stroke="currentColor"
+              strokeLinecap="round"
+              d="M495.66,333.63c0,3.56-2.1,8.1-5.18,9.87l-88.15,50.89a9.94,9.94,0,0,1-9.95,0L304.24,343.5a9.93,9.93,0,0,1-5-8.61V233.1a9.94,9.94,0,0,1,5-8.61l88.14-50.89a9.94,9.94,0,0,1,9.95,0l88.15,50.89c3.08,1.78,5.18,3.81,5.18,7.36"
+            />
+            <path
+              fill="none"
+              strokeWidth="6"
+              stroke="currentColor"
+              strokeLinecap="round"
+              d="M495.66,333.63V231.85a10,10,0,0,1,5-8.62l88.15-50.89a10,10,0,0,1,10,0l88.14,50.89a10,10,0,0,1,5,8.62V333.63a10,10,0,0,1-5,8.62l-88.14,50.89a10,10,0,0,1-10,0l-88.15-50.89A9.94,9.94,0,0,1,495.66,333.63Z"
+            />
+            <path
+              fill="none"
+              strokeWidth="6"
+              stroke="currentColor"
+              strokeLinecap="round"
+              d="M523.12,317.8V247.68a9.9,9.9,0,0,1,5-8.58l55.74-32.18a19.85,19.85,0,0,1,19.86,0l55.75,32.18a9.91,9.91,0,0,1,5,8.58V317.8a9.91,9.91,0,0,1-5,8.58l-60.72,35.05a9.91,9.91,0,0,1-9.91,0l-60.72-35.05A9.9,9.9,0,0,1,523.12,317.8Z"
+            />
+            <polyline
+              fill="none"
+              strokeWidth="6"
+              stroke="currentColor"
+              strokeLinecap="round"
+              points="664.82 242.06 593.75 279.04 522.68 242.06"
+            />
+            <polyline
+              fill="none"
+              strokeWidth="6"
+              stroke="currentColor"
+              strokeLinecap="round"
+              points="664.54 283.54 593.75 320.38 522.96 283.54"
+            />
+            <line
+              fill="none"
+              strokeWidth="6"
+              stroke="currentColor"
+              strokeLinecap="round"
+              x1="593.75"
+              y1="204.27"
+              x2="593.75"
+              y2="396.01"
+            />
+            <path
+              fill="none"
+              strokeWidth="6"
+              stroke="currentColor"
+              strokeLinecap="round"
+              d="M193.18,175c3.08-1.77,6-5.81,6-9.37V63.84a10,10,0,0,0-5-8.62L106.07,4.33a10,10,0,0,0-9.95,0L8,55.22a10,10,0,0,0-5,8.62V165.62a10,10,0,0,0,5,8.62l88.15,50.89c3.08,1.77,8.87.79,11.95-1"
+            />
+            <path
+              fill="none"
+              strokeWidth="6"
+              stroke="currentColor"
+              strokeLinecap="round"
+              d="M598.68,393c-3.08,1.77-5.93,5.38-5.93,8.93V503.72a10,10,0,0,0,5,8.61l88.14,50.89a9.94,9.94,0,0,0,10,0L784,512.33a9.94,9.94,0,0,0,5-8.61V401.93a9.93,9.93,0,0,0-5-8.61l-88.15-50.89c-3.08-1.78-7.58-1.14-10.66.64"
+            />
+          </motion.svg>
+        </div>
+      </Container>
+    </motion.div>
+  );
+};
 
-    <svg
-      viewBox="0 0 791.94 567.55"
-      className="absolute bottom-0 left-0 z-0 transform -translate-x-10 translate-y-10 lg:w-1/2 text-c-blue-600"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        d="M299.27,231.85c0-3.55-2.25-6-5.33-7.78L205.8,173.18a9.94,9.94,0,0,0-10,0L107.7,224.07a10,10,0,0,0-5,8.61V334.46a10,10,0,0,0,5,8.62L195.85,394a9.94,9.94,0,0,0,10,0l88.14-50.89c3.08-1.78,5.12-7.29,5.12-10.84"
-      />
-      <path
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        d="M495.66,333.63c0,3.56-2.1,8.1-5.18,9.87l-88.15,50.89a9.94,9.94,0,0,1-9.95,0L304.24,343.5a9.93,9.93,0,0,1-5-8.61V233.1a9.94,9.94,0,0,1,5-8.61l88.14-50.89a9.94,9.94,0,0,1,9.95,0l88.15,50.89c3.08,1.78,5.18,3.81,5.18,7.36"
-      />
-      <path
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        d="M495.66,333.63V231.85a10,10,0,0,1,5-8.62l88.15-50.89a10,10,0,0,1,10,0l88.14,50.89a10,10,0,0,1,5,8.62V333.63a10,10,0,0,1-5,8.62l-88.14,50.89a10,10,0,0,1-10,0l-88.15-50.89A9.94,9.94,0,0,1,495.66,333.63Z"
-      />
-      <path
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        d="M523.12,317.8V247.68a9.9,9.9,0,0,1,5-8.58l55.74-32.18a19.85,19.85,0,0,1,19.86,0l55.75,32.18a9.91,9.91,0,0,1,5,8.58V317.8a9.91,9.91,0,0,1-5,8.58l-60.72,35.05a9.91,9.91,0,0,1-9.91,0l-60.72-35.05A9.9,9.9,0,0,1,523.12,317.8Z"
-      />
-      <polyline
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        points="664.82 242.06 593.75 279.04 522.68 242.06"
-      />
-      <polyline
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        points="664.54 283.54 593.75 320.38 522.96 283.54"
-      />
-      <line
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        x1="593.75"
-        y1="204.27"
-        x2="593.75"
-        y2="396.01"
-      />
-      <path
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        d="M193.18,175c3.08-1.77,6-5.81,6-9.37V63.84a10,10,0,0,0-5-8.62L106.07,4.33a10,10,0,0,0-9.95,0L8,55.22a10,10,0,0,0-5,8.62V165.62a10,10,0,0,0,5,8.62l88.15,50.89c3.08,1.77,8.87.79,11.95-1"
-      />
-      <path
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        d="M598.68,393c-3.08,1.77-5.93,5.38-5.93,8.93V503.72a10,10,0,0,0,5,8.61l88.14,50.89a9.94,9.94,0,0,0,10,0L784,512.33a9.94,9.94,0,0,0,5-8.61V401.93a9.93,9.93,0,0,0-5-8.61l-88.15-50.89c-3.08-1.78-7.58-1.14-10.66.64"
-      />
-    </svg>
-  </Container>
-);
+const SplitSection = () => {
+  const inputs = [0.11, 0.15];
+  const { scrollYProgress } = useViewportScroll();
+  const left = useTransform(scrollYProgress, inputs, ['-100%', '0%']);
+  const right = useTransform(scrollYProgress, inputs, ['100%', '0%']);
+  const borderRadius = useTransform(scrollYProgress, inputs, ['16px', '0%']);
+  const scale = useTransform(scrollYProgress, [inputs[1], inputs[1] + 0.3], [1, 0.8]);
 
-const SplitSection = () => (
-  <div className="lg:flex lg:min-h-screen">
-    <Container className="flex-1 lg:px-24 bg-c-purple-500">
-      <div className="flex items-center justify-center h-full">
-        <div className="flex flex-col items-center">
-          <div className="flex flex-col space-y-1 lg:items-end">
+  return (
+    <Container className="pointer-events-none bg-c-blue-500">
+      <div className="fixed top-0 left-0 z-20 flex flex-col min-h-screen lg:flex-row">
+        <motion.div
+          style={{ x: left, borderRadius }}
+          className="flex items-center justify-center flex-1 p-4 pointer-events-auto lg:min-h-screen lg:px-24 bg-c-purple-500"
+        >
+          <motion.div style={{ scale }} className="space-y-1 lg:text-right">
             <h4 className="text-4xl font-medium text-white uppercase lg:text-5xl">
               Live <span className="text-c-purple-300">local</span>
             </h4>
@@ -149,172 +171,357 @@ const SplitSection = () => (
               A place that is home to a community of great humans reflecting a positive, inclusive
               and diverse culture
             </p>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          style={{ x: right, borderRadius }}
+          className="flex items-center justify-center flex-1 px-6 pointer-events-auto lg:min-h-screen lg:px-24 bg-c-purple-400"
+        >
+          <motion.div
+            style={{ scale }}
+            className="space-y-6 text-2xl font-medium lg:space-y-12 lg:text-4xl text-c-purple-200"
+          >
+            <p>
+              We believe humanity is at its best when we feel{' '}
+              <span className="text-white">deeply connected to a community.</span>
+            </p>
+
+            <p>
+              At Brixton Hive you will certainly benefit from{' '}
+              <span className="text-white">our inclusive culture.</span>
+            </p>
+          </motion.div>
+        </motion.div>
+      </div>
+    </Container>
+  );
+};
+
+const MapSection = () => {
+  const inputs = [3300, 3500];
+  const { scrollY } = useViewportScroll();
+  const color = useTransform(scrollY, inputs, ['#62685c', '#daded6']);
+  const backgroundColor = useTransform(scrollY, inputs, ['#A3AD99', '#62685c']);
+
+  return (
+    <motion.div style={{ backgroundColor }} className="relative">
+      <Container>
+        <div className="relative z-10 w-full max-w-4xl mx-auto space-y-8 lg:space-y-24">
+          <p className="text-3xl font-medium text-center text-white lg:text-6xl">
+            18 Brixton Rise, Glen Iris.
+          </p>
+
+          <div className="flex-grow">
+            <div>
+              <Image
+                width="5761"
+                height="3449"
+                quality="100"
+                src="/images/map.png"
+                className="rounded-lg shadow-lg"
+              />
+            </div>
           </div>
+
+          <motion.div style={{ color }} className="space-y-8 text-lg">
+            <p>
+              Covid-19 has seen many changes in the way we live, not least the explosion in
+              e-commerce and the desire to work locally. Most of us at Brixton Hive live within 5
+              kilometres and we all know the value of this.
+            </p>
+            <p>
+              Brixton Hive will provide work, storage and creativity spaces with unparalleled
+              accessibility to the local community. We have an abundance of local parking, direct
+              access to the train line and bus services, Gardiners Creek Trail on our door step and
+              immediate access to the Monash freeway. Currently, it is a 15 minutes drive to the
+              CBD.
+            </p>
+            <p>
+              Working at the Hive allows small and start up businesses to collaborate with a diverse
+              range of people while also providing private space for each group to remain focussed
+              on innovation and growth.
+            </p>
+          </motion.div>
         </div>
-      </div>
-    </Container>
-
-    <Container className="flex-1 lg:px-24 bg-c-purple-400">
-      <div className="flex flex-col justify-center h-full space-y-12">
-        <p className="text-3xl font-medium lg:text-4xl text-c-purple-200">
-          We believe humanity is at its best when we feel{' '}
-          <span className="text-white">deeply connected to a community.</span>
-        </p>
-
-        <p className="text-3xl font-medium lg:text-4xl text-c-purple-200">
-          At Brixton Hive you will certainly benefit from{' '}
-          <span className="text-white">our inclusive culture.</span>
-        </p>
-      </div>
-    </Container>
-  </div>
-);
-
-const MapSection = () => (
-  <Container className="bg-c-green-500">
-    <div className="relative z-10 w-full max-w-4xl mx-auto space-y-8 lg:space-y-24">
-      <p className="text-3xl font-medium text-center text-white lg:text-6xl">
-        18 Brixton Rise, Glen Iris.
-      </p>
-
-      <div className="flex-grow">
-        <div>
-          <Image
-            src="/images/map.png"
-            width="5761"
-            height="3449"
-            quality="100"
-            className="rounded-lg shadow-lg"
+      </Container>
+      <Container>
+        <svg
+          viewBox="0 0 791.94 567.55"
+          xmlns="http://www.w3.org/2000/svg"
+          className="absolute bottom-0 right-0 z-0 w-1/2 transform transform-x lg:translate-x-10 text-c-green-700"
+        >
+          <path
+            fill="none"
+            strokeWidth="6"
+            stroke="currentColor"
+            strokeLinecap="round"
+            d="M299.27,231.85c0-3.55-2.25-6-5.33-7.78L205.8,173.18a9.94,9.94,0,0,0-10,0L107.7,224.07a10,10,0,0,0-5,8.61V334.46a10,10,0,0,0,5,8.62L195.85,394a9.94,9.94,0,0,0,10,0l88.14-50.89c3.08-1.78,5.12-7.29,5.12-10.84"
           />
-        </div>
-      </div>
+          <path
+            fill="none"
+            strokeWidth="6"
+            stroke="currentColor"
+            strokeLinecap="round"
+            d="M495.66,333.63c0,3.56-2.1,8.1-5.18,9.87l-88.15,50.89a9.94,9.94,0,0,1-9.95,0L304.24,343.5a9.93,9.93,0,0,1-5-8.61V233.1a9.94,9.94,0,0,1,5-8.61l88.14-50.89a9.94,9.94,0,0,1,9.95,0l88.15,50.89c3.08,1.78,5.18,3.81,5.18,7.36"
+          />
+          <path
+            fill="none"
+            strokeWidth="6"
+            stroke="currentColor"
+            strokeLinecap="round"
+            d="M495.66,333.63V231.85a10,10,0,0,1,5-8.62l88.15-50.89a10,10,0,0,1,10,0l88.14,50.89a10,10,0,0,1,5,8.62V333.63a10,10,0,0,1-5,8.62l-88.14,50.89a10,10,0,0,1-10,0l-88.15-50.89A9.94,9.94,0,0,1,495.66,333.63Z"
+          />
+          <path
+            fill="none"
+            strokeWidth="6"
+            stroke="currentColor"
+            strokeLinecap="round"
+            d="M523.12,317.8V247.68a9.9,9.9,0,0,1,5-8.58l55.74-32.18a19.85,19.85,0,0,1,19.86,0l55.75,32.18a9.91,9.91,0,0,1,5,8.58V317.8a9.91,9.91,0,0,1-5,8.58l-60.72,35.05a9.91,9.91,0,0,1-9.91,0l-60.72-35.05A9.9,9.9,0,0,1,523.12,317.8Z"
+          />
+          <polyline
+            fill="none"
+            strokeWidth="6"
+            stroke="currentColor"
+            strokeLinecap="round"
+            points="664.82 242.06 593.75 279.04 522.68 242.06"
+          />
+          <polyline
+            fill="none"
+            strokeWidth="6"
+            stroke="currentColor"
+            strokeLinecap="round"
+            points="664.54 283.54 593.75 320.38 522.96 283.54"
+          />
+          <line
+            fill="none"
+            strokeWidth="6"
+            stroke="currentColor"
+            strokeLinecap="round"
+            x1="593.75"
+            y1="204.27"
+            x2="593.75"
+            y2="396.01"
+          />
+          <path
+            fill="none"
+            strokeWidth="6"
+            stroke="currentColor"
+            strokeLinecap="round"
+            d="M193.18,175c3.08-1.77,6-5.81,6-9.37V63.84a10,10,0,0,0-5-8.62L106.07,4.33a10,10,0,0,0-9.95,0L8,55.22a10,10,0,0,0-5,8.62V165.62a10,10,0,0,0,5,8.62l88.15,50.89c3.08,1.77,8.87.79,11.95-1"
+          />
+          <path
+            fill="none"
+            strokeWidth="6"
+            stroke="currentColor"
+            strokeLinecap="round"
+            d="M598.68,393c-3.08,1.77-5.93,5.38-5.93,8.93V503.72a10,10,0,0,0,5,8.61l88.14,50.89a9.94,9.94,0,0,0,10,0L784,512.33a9.94,9.94,0,0,0,5-8.61V401.93a9.93,9.93,0,0,0-5-8.61l-88.15-50.89c-3.08-1.78-7.58-1.14-10.66.64"
+          />
+        </svg>
 
-      <div className="space-y-8 text-lg text-c-green-800">
-        <p>
-          Covid-19 has seen many changes in the way we live, not least the explosion in e-commerce
-          and the desire to work locally. Most of us at Brixton Hive live within 5 kilometres and we
-          all know the value of this.
-        </p>
-        <p>
-          Brixton Hive will provide work, storage and creativity spaces with unparalleled
-          accessibility to the local community. We have an abundance of local parking, direct access
-          to the train line and bus services, Gardiners Creek Trail on our door step and immediate
-          access to the Monash freeway. Currently, it is a 15 minutes drive to the CBD.
-        </p>
-        <p>
-          Working at the Hive allows small and start up businesses to collaborate with a diverse
-          range of people while also providing private space for each group to remain focussed on
-          innovation and growth.
-        </p>
-      </div>
-    </div>
-  </Container>
-);
+        <div className="relative z-10 max-w-4xl mx-auto space-y-8 lg:space-y-24">
+          <p className="text-3xl font-medium text-center text-white lg:text-5xl">
+            We are different to any other co-work or storage space... on purpose.
+          </p>
 
-const WeAreDifferent = () => (
-  <Container className="bg-c-green-800">
-    <svg
-      viewBox="0 0 791.94 567.55"
-      xmlns="http://www.w3.org/2000/svg"
-      className="absolute bottom-0 right-0 z-0 w-1/2 transform transform-x lg:translate-x-10 text-c-green-700"
-    >
-      <path
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        d="M299.27,231.85c0-3.55-2.25-6-5.33-7.78L205.8,173.18a9.94,9.94,0,0,0-10,0L107.7,224.07a10,10,0,0,0-5,8.61V334.46a10,10,0,0,0,5,8.62L195.85,394a9.94,9.94,0,0,0,10,0l88.14-50.89c3.08-1.78,5.12-7.29,5.12-10.84"
-      />
-      <path
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        d="M495.66,333.63c0,3.56-2.1,8.1-5.18,9.87l-88.15,50.89a9.94,9.94,0,0,1-9.95,0L304.24,343.5a9.93,9.93,0,0,1-5-8.61V233.1a9.94,9.94,0,0,1,5-8.61l88.14-50.89a9.94,9.94,0,0,1,9.95,0l88.15,50.89c3.08,1.78,5.18,3.81,5.18,7.36"
-      />
-      <path
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        d="M495.66,333.63V231.85a10,10,0,0,1,5-8.62l88.15-50.89a10,10,0,0,1,10,0l88.14,50.89a10,10,0,0,1,5,8.62V333.63a10,10,0,0,1-5,8.62l-88.14,50.89a10,10,0,0,1-10,0l-88.15-50.89A9.94,9.94,0,0,1,495.66,333.63Z"
-      />
-      <path
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        d="M523.12,317.8V247.68a9.9,9.9,0,0,1,5-8.58l55.74-32.18a19.85,19.85,0,0,1,19.86,0l55.75,32.18a9.91,9.91,0,0,1,5,8.58V317.8a9.91,9.91,0,0,1-5,8.58l-60.72,35.05a9.91,9.91,0,0,1-9.91,0l-60.72-35.05A9.9,9.9,0,0,1,523.12,317.8Z"
-      />
-      <polyline
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        points="664.82 242.06 593.75 279.04 522.68 242.06"
-      />
-      <polyline
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        points="664.54 283.54 593.75 320.38 522.96 283.54"
-      />
-      <line
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        x1="593.75"
-        y1="204.27"
-        x2="593.75"
-        y2="396.01"
-      />
-      <path
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        d="M193.18,175c3.08-1.77,6-5.81,6-9.37V63.84a10,10,0,0,0-5-8.62L106.07,4.33a10,10,0,0,0-9.95,0L8,55.22a10,10,0,0,0-5,8.62V165.62a10,10,0,0,0,5,8.62l88.15,50.89c3.08,1.77,8.87.79,11.95-1"
-      />
-      <path
-        fill="none"
-        strokeWidth="6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        d="M598.68,393c-3.08,1.77-5.93,5.38-5.93,8.93V503.72a10,10,0,0,0,5,8.61l88.14,50.89a9.94,9.94,0,0,0,10,0L784,512.33a9.94,9.94,0,0,0,5-8.61V401.93a9.93,9.93,0,0,0-5-8.61l-88.15-50.89c-3.08-1.78-7.58-1.14-10.66.64"
-      />
-    </svg>
-
-    <div className="relative z-10 max-w-4xl mx-auto space-y-8 lg:space-y-24">
-      <p className="text-3xl font-medium text-center text-white lg:text-5xl">
-        We are different to any other co-work or storage space... on purpose.
-      </p>
-
-      <div className="space-y-24 lg:flex lg:space-x-16 lg:space-y-0">
-        <div className="flex flex-col flex-1 space-y-8">
-          <div className="space-y-8 text-lg text-c-green-300">
-            <p>
-              Brixton Hive is divided into four functional zones that each include different
-              benefits. Every tenant has unique needs, and we pride ourselves on being able to
-              customise each package to best suit the community member.
-            </p>
-            <p>
-              A community manager is onsite 9-5 weekdays to ensure the smooth running of this
-              workplace so you can be focussed on your work. We provide secure a monitored dispatch
-              space so you can leave your orders to be courier collected without needing to stay on
-              site.
-            </p>
-            <p>
-              We have all the equipment on site that you will need to receive your deliveries, be
-              that receiving parcels or boxes to unloading pallets from a truck or containers.
-            </p>
+          <div className="space-y-24 lg:flex lg:space-x-16 lg:space-y-0">
+            <div className="flex flex-col flex-1 space-y-8">
+              <div className="space-y-8 text-lg text-c-green-300">
+                <p>
+                  Brixton Hive is divided into four functional zones that each include different
+                  benefits. Every tenant has unique needs, and we pride ourselves on being able to
+                  customise each package to best suit the community member.
+                </p>
+                <p>
+                  A community manager is onsite 9-5 weekdays to ensure the smooth running of this
+                  workplace so you can be focussed on your work. We provide secure a monitored
+                  dispatch space so you can leave your orders to be courier collected without
+                  needing to stay on site.
+                </p>
+                <p>
+                  We have all the equipment on site that you will need to receive your deliveries,
+                  be that receiving parcels or boxes to unloading pallets from a truck or
+                  containers.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
+      </Container>
+    </motion.div>
+  );
+};
+
+const Work = () => {
+  const spaceOptions = [
+    { text: 'Private office', Icon: UserOutline },
+    { text: 'Creative studio', Icon: LightBulbOutline },
+    { text: 'Dedicated and open desks', Icon: UserGroupOutline },
+  ];
+
+  const communualFacilities = [
+    'Breakout spaces',
+    'Meeting rooms',
+    'Kitchen',
+    'Function spaces',
+    'Events',
+    'Outdoor terrace with BBQ and bar',
+    'Dedicated podcast room',
+    'Flexible photography studio',
+    'Convenient parking',
+    'End of trip facilities',
+  ];
+
+  return (
+    <Container id="work" className="bg-c-green-500">
+      <div className="space-y-16">
+        <p className="text-4xl font-bold text-center text-white lg:text-5xl">Work</p>
+
+        <ContentContainer>
+          <div className="space-y-8">
+            <p className="text-3xl font-medium text-white">
+              Communal, private, or creative work spaces for everyone
+            </p>
+            <p className="text-lg text-c-green-800">
+              It’s all the rage: office and desk space with communal facilities. The hive is more
+              than a cluster of secure spaces, we're a place of mixed use, great diversity, and
+              connectivity. We even allow visitation of pets with approval from the community
+              manager.
+            </p>
+            <div className="flex space-x-2">
+              {spaceOptions.map(({ text, Icon }) => (
+                <div className="flex flex-col justify-between flex-1 px-4 py-4 space-y-2 rounded-lg bg-c-green-200">
+                  <Icon className="text-c-green-500" />
+                  <p className="text-lg text-c-green-900">{text}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-lg text-c-green-800">
+              There are a variety of facilities and events to promote a vibrant atmosphere
+              including:
+            </p>
+            <Options options={communualFacilities} className="text-c-green-100 bg-c-green-700" />
+          </div>
+          <div className="flex-grow max-w-sm">
+            <Image
+              width="3334"
+              quality="100"
+              height="3989"
+              src="/images/IMG_9424.png"
+              className="rounded-lg shadow-lg"
+            />
+          </div>
+        </ContentContainer>
       </div>
-    </div>
-  </Container>
-);
+    </Container>
+  );
+};
+
+const Store = () => {
+  const options = [
+    'Fire rated',
+    'Monitored secure storage',
+    'Exclusive 7-day access',
+    'Short, medium, and long-term flexible spaces',
+    'Keyless entry',
+    'End of trip facilities',
+  ];
+
+  return (
+    <Container id="store" className="bg-c-brown-500">
+      <div className="flex flex-col items-center space-y-16">
+        <p className="text-4xl font-bold text-white lg:text-5xl">Store</p>
+
+        <ContentContainer>
+          <div className="space-y-8">
+            <p className="text-3xl font-medium text-white">Affordable self storage</p>
+
+            <p className="text-lg text-c-brown-900">
+              Premium prices for land in Melbourne have many people opting for off-site storage.{' '}
+              <b>Our rates are highly competitive.</b> Managed by friendly and engaging staff,
+              supported by state of the art storage software. 1000m2 dedicated to individual storage
+              units. Various sizes available, starting at 2.25m2.
+            </p>
+
+            <Options options={options} className="text-white bg-c-brown-600" />
+          </div>
+          <div className="flex-shrink-0 w-full max-w-sm">
+            <div>
+              <Image
+                width="646"
+                height="800"
+                quality="100"
+                src="/images/StorageRoom.png"
+                className="rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+        </ContentContainer>
+
+        <div className="flex items-center space-x-8">
+          <Button href="/get-a-quote">Get a quote</Button>
+          <p className="text-lg text-c-brown-200">Available as of 26th of March</p>
+        </div>
+      </div>
+    </Container>
+  );
+};
+
+const Warehouse = () => {
+  const options = [
+    'Fire rated',
+    '7 day access',
+    'Sizes starting from 10m2',
+    'Ground level vehicle access',
+    'Monitored security',
+    'Secure, monitored delivery and dispatch',
+    'Printing and packaging stations',
+    'End of trip facilities',
+  ];
+
+  return (
+    <Container id="warehouse" className="bg-c-blue-500">
+      <div className="flex flex-col items-center space-y-16">
+        <p className="text-4xl font-bold text-white lg:text-5xl">Warehouse</p>
+
+        <ContentContainer>
+          <div className="space-y-8">
+            <p className="text-lg text-c-blue-200">
+              We have long had a growing community of trades people who we greatly value and wish to
+              dedicate awesome facilities that will help them run their ships like clockwork. Many
+              of these trades use the warehousing in the early hours of the day, gather the tools
+              they need for the day’s productivity, and return at the end of the day to secure their
+              valuables.
+            </p>
+            <Options options={options} className="text-white bg-c-blue-700" />
+            <div className="p-6 space-y-2 rounded-lg shadow-lg bg-c-blue-200">
+              <p className="text-2xl font-medium text-c-blue-900">E-commerce capabilities</p>
+              <p className="text-c-blue-700">
+                We make dispatching orders a breeze with all the equipment on site that you will
+                need to receive your deliveries, be that receiving parcels or boxes to unloading
+                pallets from a truck or containers.
+              </p>
+            </div>
+          </div>
+          <div className="flex-shrink-0 w-full max-w-sm">
+            <Image
+              src="/images/IMG_9452.png"
+              width="2467"
+              height="3918"
+              quality="100"
+              className="rounded-lg shadow-lg"
+            />
+          </div>
+        </ContentContainer>
+
+        <div className="flex items-center space-x-8">
+          <Button href="/get-a-quote">Get a quote</Button>
+          <p className="text-lg text-c-blue-200">Available as of 26th of March</p>
+        </div>
+      </div>
+    </Container>
+  );
+};
 
 const Enterprise = () => {
   const options = [
@@ -348,9 +555,8 @@ const Enterprise = () => {
               </p>
 
               <p>
-                If your company needs space for more than six members, please{' '}
-                <a href="#get-in-touch">get in touch with us</a> to create the perfect space for
-                you.
+                If your company needs space for more than six members, please get in touch with us
+                to create the perfect space for you.
               </p>
             </div>
           </div>
@@ -388,11 +594,11 @@ const Enterprise = () => {
 };
 
 const GetInTouch = () => (
-  <Container id="get-in-touch">
+  <Container className="bg-c-brown-500" id="get-in-touch">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 892.04 906.92"
-      className="absolute z-0 lg:w-1/2 right-28 text-c-brown-600"
+      className="absolute z-0 lg:w-3/4 right-28 text-c-brown-600"
     >
       <path
         fill="none"
@@ -484,4 +690,12 @@ const GetInTouch = () => (
       </div>
     </div>
   </Container>
+);
+
+const Options = ({ options = [], className }) => (
+  <div className="flex flex-wrap items-start">
+    {options.map(option => (
+      <p className={clsx('px-3 my-1 mr-2 py-1 rounded-md', className)}>{option}</p>
+    ))}
+  </div>
 );

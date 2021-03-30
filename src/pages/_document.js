@@ -7,7 +7,7 @@ export default class NextSite extends Document {
         <Head>
           <link
             rel="preload"
-            href="/fonts/inter-var-latin.woff2"
+            href="/fonts/museo-sans.woff2"
             as="font"
             type="font/woff2"
             crossOrigin="anonymous"
@@ -16,7 +16,7 @@ export default class NextSite extends Document {
           <meta name="author" content="Sam Potter" />
           <meta name="robots" content="follow, all" />
         </Head>
-        <body style={{ backgroundColor: '#D7B084' }}>
+        <body className="w-full">
           <Main />
           <NextScript />
         </body>

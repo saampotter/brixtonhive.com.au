@@ -1,6 +1,7 @@
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
+import { Transition } from '@headlessui/react';
 
 export default function Nav() {
   const router = useRouter();
@@ -8,6 +9,7 @@ export default function Nav() {
 
   useEffect(() => {
     document.body.style.overflowY = isOpen ? 'hidden' : 'auto';
+    document.body.style.position = isOpen ? 'fixed' : 'relative';
   }, [isOpen]);
 
   useEffect(() => {
@@ -16,7 +18,7 @@ export default function Nav() {
 
   return (
     <>
-      <nav className="fixed z-10 w-full p-4 bg-transparent pointer-events-none lg:p-16">
+      <nav className="fixed z-40 w-full p-4 bg-transparent pointer-events-none lg:p-16">
         <div className="flex items-center justify-between">
           <NextLink href="/#get-in-touch" passHref>
             <a className="p-3 px-4 bg-white rounded-full shadow-lg pointer-events-auto text-c-green-900">
@@ -47,8 +49,17 @@ export default function Nav() {
         </div>
       </nav>
 
-      {isOpen && (
-        <div className="fixed top-0 left-0 z-20 w-full h-screen overflow-hidden bg-c-brown-500">
+      <Transition
+        show={isOpen}
+        as={Fragment}
+        enter="transform transition ease-in-out duration-500 sm:duration-700"
+        enterFrom="-translate-x-full"
+        enterTo="translate-x-0"
+        leaving="transform transition ease-in-out duration-500 sm:duration-700"
+        leaveFrom="translate-x-0"
+        leaveTo="-translate-x-full"
+      >
+        <div className="fixed top-0 left-0 z-50 w-full h-screen overflow-hidden bg-c-brown-500">
           <div className="absolute w-full bg-transparent pointer-events-none">
             <div className="flex justify-end p-4 lg:p-16">
               <a
@@ -78,11 +89,14 @@ export default function Nav() {
             <nav className="flex flex-col items-center space-y-6 lg:space-y-8">
               <Link href="/">Home</Link>
               <Link href="/our-values">Our values</Link>
+              <Link href="/#work">Work</Link>
+              <Link href="/#store">Store</Link>
+              <Link href="/#warehouse">Warehouse</Link>
               <Link href="/#get-in-touch">Get in touch</Link>
             </nav>
           </div>
         </div>
-      )}
+      </Transition>
     </>
   );
 }
