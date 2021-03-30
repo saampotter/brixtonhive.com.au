@@ -8,6 +8,18 @@ module.exports = {
         sans: ['Museo Sans', ...defaultTheme.fontFamily.sans],
       },
       colors: {
+        'c-gray': {
+          50: '#fdfdfc',
+          100: '#fbfbfa',
+          200: '#f5f4f1',
+          300: '#efede9',
+          400: '#e2e0d9',
+          500: '#d6d2c8',
+          600: '#c1bdb4',
+          700: '#a19e96',
+          800: '#807e78',
+          900: '#696762',
+        },
         'c-yellow': {
           50: '#fffefa',
           100: '#fefcf5',

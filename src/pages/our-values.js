@@ -1,3 +1,4 @@
+import { motion, useTransform, useViewportScroll } from 'framer-motion';
 import Image from 'next/image';
 import Container from '../components/Container';
 import ContentContainer from '../components/ContentContainer';
@@ -5,49 +6,61 @@ import ContentContainer from '../components/ContentContainer';
 export default function OurValues() {
   return (
     <>
-      <div className="relative">
-        <Svg />
+      <Hero />
+      <TransitionSection />
+    </>
+  );
+}
 
-        <Container className="bg-c-brown-500">
-          <ContentContainer>
-            <div className="space-y-8 lg:space-y-0 lg:space-x-4 lg:flex">
-              <div className="flex-1">
-                <h1 className="text-4xl font-bold text-white lg:text-6xl">Our Values</h1>
-              </div>
+const Hero = () => (
+  <Container className="bg-c-gray-500">
+    <ContentContainer>
+      <div className="space-y-8 lg:space-y-0 lg:space-x-4 lg:flex">
+        <div className="flex-1">
+          <h1 className="text-4xl font-bold text-c-gray-900 lg:text-6xl">Our Values</h1>
+        </div>
 
-              <div className="flex-1">
-                <div className="space-y-8 text-xl font-medium lg:space-y-16 text-c-brown-800">
-                  <p className="text-2xl text-c-brown-200">
-                    We endeavour to be a place that is home to a community of great humans
-                    reflecting a positive, inclusive and diverse culture.
-                  </p>
+        <div className="flex-1">
+          <div className="space-y-8 text-xl font-medium lg:space-y-16 text-c-gray-800">
+            <p className="text-2xl text-c-gray-900">
+              We endeavour to be a place that is home to a community of great humans reflecting a
+              positive, inclusive and diverse culture.
+            </p>
 
-                  <p>
-                    The Brixton Hive family strives to empower others, simplify the complexities of
-                    running businesses and life and live harmoniously in the environment we are
-                    current custodians of.
-                  </p>
-                  <p>
-                    We acknowledge the original custodians of this land, the Wurundjeri people who
-                    nurtured the Kooyongcoot Creek, who used it as a source of vegetation, food,
-                    tools and medicine, sustaining it for thousands of years with minimal impact on
-                    the environment. We delight in the opportunity to connect to the land daily and
-                    that its restoration to native vegetation is well under way. It’s a step out the
-                    door and we are immersed in this regenerating forest, we are grateful.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </ContentContainer>
-        </Container>
+            <p>
+              The Brixton Hive family strives to empower others, simplify the complexities of
+              running businesses and life and live harmoniously in the environment we are current
+              custodians of.
+            </p>
+            <p>
+              We acknowledge the original custodians of this land, the Wurundjeri people who
+              nurtured the Kooyongcoot Creek, who used it as a source of vegetation, food, tools and
+              medicine, sustaining it for thousands of years with minimal impact on the environment.
+              We delight in the opportunity to connect to the land daily and that its restoration to
+              native vegetation is well under way. It’s a step out the door and we are immersed in
+              this regenerating forest, we are grateful.
+            </p>
+          </div>
+        </div>
       </div>
+    </ContentContainer>
+  </Container>
+);
 
-      <Container className="bg-c-green-500">
+const TransitionSection = () => {
+  const inputs = [1300, 1500];
+  const { scrollY } = useViewportScroll();
+  const color = useTransform(scrollY, inputs, ['#62685c', '#daded6']);
+  const backgroundColor = useTransform(scrollY, inputs, ['#A3AD99', '#62685c']);
+
+  return (
+    <motion.div style={{ backgroundColor }}>
+      <Container>
         <ContentContainer>
           <div className="space-y-8">
             <h2 className="text-3xl font-medium text-white">Caring for our environment</h2>
 
-            <div className="space-y-8 text-lg text-c-green-800">
+            <motion.div style={{ color }} className="space-y-8 text-lg">
               <p>
                 Our Environment is of paramount importance to us and high on our values list. We
                 have worked towards and will continue to strive to make our environment as
@@ -78,7 +91,7 @@ export default function OurValues() {
                 benefits of the urban Forrest on our doorstep and your body and mind will thank you
                 for it.
               </p>
-            </div>
+            </motion.div>
           </div>
 
           <div className="flex-shrink-0 w-full max-w-sm space-y-8">
@@ -121,12 +134,12 @@ export default function OurValues() {
             <div className="space-y-8">
               <h2 className="text-2xl font-medium text-white">Giving Back</h2>
 
-              <p className="text-lg text-c-brown-800">
+              <motion.p style={{ color }} className="text-lg">
                 We appreciate it is difficult to get started in new business. We consider short term
                 scholarships to help start-ups get underway. We also value the in-put to humanity
                 that non-for-profits provide and partner with several organisations. Please talk to
                 us if you feel we could help you get started.
-              </p>
+              </motion.p>
             </div>
           </ContentContainer>
 
@@ -134,7 +147,7 @@ export default function OurValues() {
             <div className="space-y-8">
               <h2 className="text-2xl font-medium text-white">The Importance of Design</h2>
 
-              <div className="space-y-8 text-lg text-c-brown-800">
+              <motion.div style={{ color }} className="space-y-8 text-lg">
                 <p>
                   We have spent years developing an understanding of 18 Brixton Rise and have
                   applied holistic and dynamic strategies in each stage of its expansion.
@@ -145,7 +158,7 @@ export default function OurValues() {
                   personalised spaces and allow users to feel freedom in expressing individuality.
                   Brixton Hive has been designed thoughtfully to optimise each users experience.
                 </p>
-              </div>
+              </motion.div>
             </div>
 
             <div className="flex-shrink-0 w-full max-w-sm">
@@ -160,81 +173,6 @@ export default function OurValues() {
           </ContentContainer>
         </div>
       </Container>
-    </>
+    </motion.div>
   );
-}
-
-const Svg = () => (
-  <svg
-    viewBox="0 0 791.94 567.55"
-    xmlns="http://www.w3.org/2000/svg"
-    className="absolute bottom-0 left-0 z-0 transform lg:w-1/2 text-c-brown-600"
-  >
-    <path
-      fill="none"
-      strokeWidth="6"
-      stroke="currentColor"
-      strokeLinecap="round"
-      d="M299.27,231.85c0-3.55-2.25-6-5.33-7.78L205.8,173.18a9.94,9.94,0,0,0-10,0L107.7,224.07a10,10,0,0,0-5,8.61V334.46a10,10,0,0,0,5,8.62L195.85,394a9.94,9.94,0,0,0,10,0l88.14-50.89c3.08-1.78,5.12-7.29,5.12-10.84"
-    />
-    <path
-      fill="none"
-      strokeWidth="6"
-      stroke="currentColor"
-      strokeLinecap="round"
-      d="M495.66,333.63c0,3.56-2.1,8.1-5.18,9.87l-88.15,50.89a9.94,9.94,0,0,1-9.95,0L304.24,343.5a9.93,9.93,0,0,1-5-8.61V233.1a9.94,9.94,0,0,1,5-8.61l88.14-50.89a9.94,9.94,0,0,1,9.95,0l88.15,50.89c3.08,1.78,5.18,3.81,5.18,7.36"
-    />
-    <path
-      fill="none"
-      strokeWidth="6"
-      stroke="currentColor"
-      strokeLinecap="round"
-      d="M495.66,333.63V231.85a10,10,0,0,1,5-8.62l88.15-50.89a10,10,0,0,1,10,0l88.14,50.89a10,10,0,0,1,5,8.62V333.63a10,10,0,0,1-5,8.62l-88.14,50.89a10,10,0,0,1-10,0l-88.15-50.89A9.94,9.94,0,0,1,495.66,333.63Z"
-    />
-    <path
-      fill="none"
-      strokeWidth="6"
-      stroke="currentColor"
-      strokeLinecap="round"
-      d="M523.12,317.8V247.68a9.9,9.9,0,0,1,5-8.58l55.74-32.18a19.85,19.85,0,0,1,19.86,0l55.75,32.18a9.91,9.91,0,0,1,5,8.58V317.8a9.91,9.91,0,0,1-5,8.58l-60.72,35.05a9.91,9.91,0,0,1-9.91,0l-60.72-35.05A9.9,9.9,0,0,1,523.12,317.8Z"
-    />
-    <polyline
-      fill="none"
-      strokeWidth="6"
-      stroke="currentColor"
-      strokeLinecap="round"
-      points="664.82 242.06 593.75 279.04 522.68 242.06"
-    />
-    <polyline
-      fill="none"
-      strokeWidth="6"
-      stroke="currentColor"
-      strokeLinecap="round"
-      points="664.54 283.54 593.75 320.38 522.96 283.54"
-    />
-    <line
-      fill="none"
-      strokeWidth="6"
-      stroke="currentColor"
-      strokeLinecap="round"
-      x1="593.75"
-      y1="204.27"
-      x2="593.75"
-      y2="396.01"
-    />
-    <path
-      fill="none"
-      strokeWidth="6"
-      stroke="currentColor"
-      strokeLinecap="round"
-      d="M193.18,175c3.08-1.77,6-5.81,6-9.37V63.84a10,10,0,0,0-5-8.62L106.07,4.33a10,10,0,0,0-9.95,0L8,55.22a10,10,0,0,0-5,8.62V165.62a10,10,0,0,0,5,8.62l88.15,50.89c3.08,1.77,8.87.79,11.95-1"
-    />
-    <path
-      fill="none"
-      strokeWidth="6"
-      stroke="currentColor"
-      strokeLinecap="round"
-      d="M598.68,393c-3.08,1.77-5.93,5.38-5.93,8.93V503.72a10,10,0,0,0,5,8.61l88.14,50.89a9.94,9.94,0,0,0,10,0L784,512.33a9.94,9.94,0,0,0,5-8.61V401.93a9.93,9.93,0,0,0-5-8.61l-88.15-50.89c-3.08-1.78-7.58-1.14-10.66.64"
-    />
-  </svg>
-);
+};

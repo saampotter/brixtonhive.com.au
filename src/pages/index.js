@@ -428,7 +428,7 @@ const Store = () => {
   ];
 
   return (
-    <Container id="store" className="bg-c-brown-500">
+    <Container id="store" className="bg-c-blue-light-500">
       <div className="flex flex-col items-center space-y-16">
         <p className="text-4xl font-bold text-white lg:text-5xl">Store</p>
 
@@ -436,14 +436,14 @@ const Store = () => {
           <div className="space-y-8">
             <p className="text-3xl font-medium text-white">Affordable self storage</p>
 
-            <p className="text-lg text-c-brown-900">
+            <p className="text-lg text-c-blue-light-900">
               Premium prices for land in Melbourne have many people opting for off-site storage.{' '}
               <b>Our rates are highly competitive.</b> Managed by friendly and engaging staff,
               supported by state of the art storage software. 1000m2 dedicated to individual storage
               units. Various sizes available, starting at 2.25m2.
             </p>
 
-            <Options options={options} className="text-white bg-c-brown-600" />
+            <Options options={options} className="text-white bg-c-blue-light-600" />
           </div>
           <div className="flex-shrink-0 w-full max-w-sm">
             <div>
@@ -458,10 +458,7 @@ const Store = () => {
           </div>
         </ContentContainer>
 
-        <div className="flex items-center space-x-8">
-          <Button href="/get-a-quote">Get a quote</Button>
-          <p className="text-lg text-c-brown-200">Available as of 26th of March</p>
-        </div>
+        <Button href="/get-a-quote">Get a quote</Button>
       </div>
     </Container>
   );
@@ -514,10 +511,7 @@ const Warehouse = () => {
           </div>
         </ContentContainer>
 
-        <div className="flex items-center space-x-8">
-          <Button href="/get-a-quote">Get a quote</Button>
-          <p className="text-lg text-c-blue-200">Available as of 26th of March</p>
-        </div>
+        <Button href="/get-a-quote">Get a quote</Button>
       </div>
     </Container>
   );
@@ -532,17 +526,17 @@ const Enterprise = () => {
   ];
 
   return (
-    <Container className="bg-white">
+    <Container className="bg-c-gray-500">
       <div className="w-full max-w-4xl mx-auto space-y-16">
-        <p className="text-4xl font-bold text-center text-gray-900 lg:text-5xl">Enterprise</p>
+        <p className="text-4xl font-bold text-center text-c-gray-900 lg:text-5xl">Enterprise</p>
 
         <div className="space-y-16 lg:flex lg:items-center lg:space-x-16 lg:space-y-0">
           <div className="w-full space-y-8">
-            <p className="text-3xl font-medium text-gray-900">
+            <p className="text-3xl font-medium text-c-gray-900">
               Your clean slate, ready to be tailored to your enterprise business needs
             </p>
 
-            <div className="space-y-8 text-lg text-gray-700">
+            <div className="space-y-8 text-lg text-c-gray-800">
               <p>
                 Most of our larger long term members have worked with us to customise their perfect
                 environment, Blakes Feast, Thrust Maritime and Glen Iris School of Dance are just
@@ -585,7 +579,7 @@ const Enterprise = () => {
 
         <div className="flex flex-wrap space-y-2 lg:space-y-0 lg:space-x-4 lg:flex-nowrap">
           {options.map(option => (
-            <div className="px-4 py-2 text-gray-900 bg-gray-100 rounded-md">{option}</div>
+            <div className="px-4 py-2 bg-gray-100 rounded-md text-c-gray-900">{option}</div>
           ))}
         </div>
       </div>

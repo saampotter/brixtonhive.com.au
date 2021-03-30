@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { Fragment, useEffect, useState } from 'react';
@@ -8,8 +9,8 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    document.documentElement.style.overflowY = isOpen ? 'hidden' : 'auto';
     document.body.style.overflowY = isOpen ? 'hidden' : 'auto';
-    document.body.style.position = isOpen ? 'fixed' : 'relative';
   }, [isOpen]);
 
   useEffect(() => {
@@ -29,13 +30,13 @@ export default function Nav() {
           <a
             role="button"
             onClick={() => setIsOpen(true)}
-            className="flex items-center justify-center p-3 rounded-full shadow-lg pointer-events-auto bg-c-green-900"
+            className="flex items-center justify-center p-3 bg-white rounded-full shadow-lg pointer-events-auto"
           >
             <svg
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              className="w-6 h-6 text-white"
+              className="w-6 h-6 text-black"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -59,19 +60,19 @@ export default function Nav() {
         leaveFrom="translate-x-0"
         leaveTo="-translate-x-full"
       >
-        <div className="fixed top-0 left-0 z-50 w-full h-screen overflow-hidden bg-c-brown-500">
+        <div className="fixed top-0 left-0 z-50 w-full h-screen overflow-hidden bg-c-purple-500">
           <div className="absolute w-full bg-transparent pointer-events-none">
             <div className="flex justify-end p-4 lg:p-16">
               <a
                 role="button"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center p-3 rounded-full shadow-lg pointer-events-auto bg-c-green-900"
+                className="flex items-center justify-center p-3 bg-white rounded-full shadow-lg pointer-events-auto"
               >
                 <svg
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  className="w-6 h-6 text-white"
+                  className="w-6 h-6 text-black"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
@@ -101,8 +102,20 @@ export default function Nav() {
   );
 }
 
-const Link = ({ href, children }) => (
-  <NextLink href={href} passHref>
-    <a className="text-4xl font-bold lg:text-6xl">{children}</a>
-  </NextLink>
-);
+const Link = ({ href, children }) => {
+  const router = useRouter();
+  const isActive = router.pathname === href;
+
+  return (
+    <NextLink href={href} passHref>
+      <a
+        className={clsx(
+          'transition text-4xl font-bold lg:text-6xl',
+          isActive ? 'text-white' : 'hover:text-white text-c-purple-300',
+        )}
+      >
+        {children}
+      </a>
+    </NextLink>
+  );
+};
