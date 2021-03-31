@@ -1,7 +1,14 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
-import { LightBulbOutline, UserGroupOutline, UserOutline } from 'heroicons-react';
+import {
+  CubeOutline,
+  DesktopComputerOutline,
+  LightBulbOutline,
+  TruckOutline,
+  UserGroupOutline,
+  UserOutline,
+} from 'heroicons-react';
 
 import Logo from '../components/Logo';
 import Button from '../components/Button';
@@ -30,8 +37,6 @@ const Hero = () => {
   const svgColor = useTransform(scrollYProgress, inputs, ['#80BEC2', '#243C4E']);
   const textColor = useTransform(scrollYProgress, inputs, ['#466769', '#a9b4bc']);
   const backgroundColor = useTransform(scrollYProgress, inputs, ['#8ED3D7', '#284357']);
-  const bubbleMovingLeft = useTransform(scrollYProgress, [0.04, 0.18], ['-10%', '0%']);
-  const bubbleMovingRight = useTransform(scrollYProgress, [0.04, 0.18], ['10%', '0%']);
 
   return (
     <motion.div style={{ backgroundColor }}>
@@ -46,14 +51,10 @@ const Hero = () => {
               <TextLogo />
             </div>
 
-            <h2 className="max-w-2xl text-2xl font-medium text-center text-white lg:text-4xl">
-              A community for work and innovation, storage and creation.
-            </h2>
-
             <svg
               fill="none"
               viewBox="0 20 16 48"
-              className="w-4 text-white animate-bounce"
+              className="w-4 pt-12 text-white animate-bounce"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -61,6 +62,10 @@ const Hero = () => {
                 d="M6.55759 1.43986V43.0793L2.46852 39.0045C1.90501 38.443 0.991112 38.443 0.423989 39.0045C-0.143134 39.566 -0.139522 40.4804 0.423989 41.0419L6.98022 47.5752C7.04885 47.6436 7.1211 47.7012 7.20057 47.7552C7.23308 47.7768 7.2692 47.7912 7.30171 47.8092C7.34867 47.8344 7.39924 47.8668 7.44981 47.8884C7.49316 47.9064 7.5365 47.9136 7.57985 47.928C7.62681 47.9424 7.67377 47.9604 7.72073 47.9712C7.79297 47.9856 7.86883 47.9892 7.94469 47.9928C7.96636 47.9928 7.98442 48 8.00248 48C8.02416 48 8.04583 47.9928 8.0675 47.9928C8.13975 47.9892 8.21199 47.9856 8.28424 47.9712C8.33481 47.9604 8.38538 47.9424 8.43234 47.928C8.47208 47.9136 8.51542 47.9064 8.55155 47.892C8.60573 47.8704 8.65991 47.838 8.71048 47.8092C8.73938 47.7912 8.77189 47.7804 8.80079 47.7624C8.88026 47.7084 8.95612 47.6472 9.02475 47.5788L15.5774 41.0491C15.8591 40.7683 16 40.3976 16 40.0304C16 39.6632 15.8591 39.2925 15.5774 39.0117C15.0139 38.4502 14.0963 38.4502 13.5328 39.0117L9.44738 43.0793V1.43986C9.44738 0.644335 8.80079 0 8.00248 0C7.20418 0 6.55759 0.644335 6.55759 1.43986Z"
               />
             </svg>
+
+            <h2 className="max-w-2xl text-2xl font-medium text-center text-white lg:text-4xl">
+              A community for work and innovation, storage and creation.
+            </h2>
           </div>
           <div className="relative z-10 w-full max-w-2xl mx-auto space-y-12 text-center">
             <motion.p
@@ -76,20 +81,33 @@ const Hero = () => {
               on what you do best and enjoy most.
             </h3>
 
-            <div className="space-y-4">
+            <div className="flex flex-col items-center space-y-4 md:space-y-0 md:space-x-4 md:flex-row">
               {[
-                { title: 'Workplace', text: 'Communal and private workspaces' },
-                { title: 'Storage', text: 'First class affordable self storage' },
-                { title: 'Warehouse', text: 'Ground-level storage for trades and e-commerce' },
-              ].map(({ title, text }, i) => (
-                <div className="flex flex-col items-center px-7">
-                  <motion.div
-                    style={{ x: i % 2 === 0 ? bubbleMovingRight : bubbleMovingLeft }}
-                    className="p-4 text-left rounded-lg shadow-lg bg-c-blue-200"
-                  >
-                    <h2 className="text-2xl">{title}</h2>
-                    <p className="mt-1">{text}</p>
-                  </motion.div>
+                {
+                  title: 'Workplace',
+                  text: 'Communal and private workspaces',
+                  Icon: DesktopComputerOutline,
+                },
+                {
+                  title: 'Storage',
+                  text: 'First class affordable self storage',
+                  Icon: CubeOutline,
+                },
+                {
+                  title: 'Warehouse',
+                  text: 'Ground-level storage for trades and e-commerce',
+                  Icon: TruckOutline,
+                },
+              ].map(({ title, text, Icon }) => (
+                <div className="flex-1 w-full p-4 text-left rounded-lg shadow-lg bg-c-blue-200">
+                  <div className="flex items-center justify-between lg:items-start lg:flex-col lg:space-y-4">
+                    <Icon className="flex-shrink-0 order-2 w-6 h-6 lg:mt-2 lg:order-1 text-c-blue-500" />
+
+                    <div className="order-1 lg:order-2">
+                      <h2 className="text-xl text-c-blue-900">{title}</h2>
+                      <p className="mt-1 text-c-blue-500">{text}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
