@@ -22,7 +22,7 @@ export default function Nav() {
       <nav className="fixed z-40 w-full p-4 bg-transparent pointer-events-none lg:p-16">
         <div className="flex items-center justify-between">
           <NextLink href="/#get-in-touch" passHref>
-            <a className="p-3 px-4 bg-white rounded-full shadow-lg pointer-events-auto text-c-green-900">
+            <a className="p-3 px-4 text-gray-900 bg-white rounded-full shadow-lg pointer-events-auto">
               Get in touch
             </a>
           </NextLink>
@@ -36,7 +36,7 @@ export default function Nav() {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              className="w-6 h-6 text-black"
+              className="w-6 h-6 text-gray-900"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path

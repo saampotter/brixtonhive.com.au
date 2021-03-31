@@ -28,8 +28,10 @@ const Hero = () => {
   const inputs = [0.04, 0.06];
   const { scrollYProgress } = useViewportScroll();
   const svgColor = useTransform(scrollYProgress, inputs, ['#80BEC2', '#243C4E']);
-  const backgroundColor = useTransform(scrollYProgress, inputs, ['#8ED3D7', '#284357']);
   const textColor = useTransform(scrollYProgress, inputs, ['#466769', '#a9b4bc']);
+  const backgroundColor = useTransform(scrollYProgress, inputs, ['#8ED3D7', '#284357']);
+  const bubbleMovingLeft = useTransform(scrollYProgress, [0.04, 0.18], ['-10%', '0%']);
+  const bubbleMovingRight = useTransform(scrollYProgress, [0.04, 0.18], ['10%', '0%']);
 
   return (
     <motion.div style={{ backgroundColor }}>
@@ -65,14 +67,32 @@ const Hero = () => {
               style={{ color: textColor }}
               className="text-base font-medium tracking-wide uppercase"
             >
-              Who are we ?
+              Who are we
             </motion.p>
 
-            <motion.h3 style={{ color: textColor }} className="text-2xl">
+            <h3 className="text-2xl text-white">
               Home to thriving e-commerce, small businesses and community groups. Brixton Hive takes
               responsibility of services that can be shared and externally managed so you can focus
               on what you do best and enjoy most.
-            </motion.h3>
+            </h3>
+
+            <div className="space-y-4">
+              {[
+                { title: 'Workplace', text: 'Communal and private workspaces' },
+                { title: 'Storage', text: 'First class affordable self storage' },
+                { title: 'Warehouse', text: 'Ground-level storage for trades and e-commerce' },
+              ].map(({ title, text }, i) => (
+                <div className="flex flex-col items-center px-7">
+                  <motion.div
+                    style={{ x: i % 2 === 0 ? bubbleMovingRight : bubbleMovingLeft }}
+                    className="p-4 text-left rounded-lg shadow-lg bg-c-blue-200"
+                  >
+                    <h2 className="text-2xl">{title}</h2>
+                    <p className="mt-1">{text}</p>
+                  </motion.div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <motion.svg
@@ -167,18 +187,20 @@ const SplitSection = () => {
       <div className="fixed top-0 left-0 z-20 flex flex-col min-h-screen lg:flex-row">
         <motion.div
           style={{ x: left, borderRadius }}
-          className="flex items-center justify-center flex-1 p-4 pointer-events-auto lg:min-h-screen lg:px-24 bg-c-purple-500"
+          className="flex items-center justify-center flex-1 p-4 pointer-events-auto lg:rounded-none lg:min-h-screen lg:px-24 bg-c-purple-500"
         >
-          <motion.div style={{ scale }} className="space-y-1 lg:text-right">
-            <h4 className="text-4xl font-medium text-white uppercase lg:text-5xl">
-              Live <span className="text-c-purple-300">local</span>
-            </h4>
+          <motion.div style={{ scale }} className="space-y-4 lg:space-y-12 lg:text-right">
+            <div className="space-y-1 text-4xl font-medium text-white uppercase lg:text-5xl">
+              <h4>
+                Live <span className="text-c-purple-300">local</span>
+              </h4>
 
-            <h4 className="text-4xl font-medium text-white uppercase lg:text-5xl">
-              work <span className="text-c-purple-300">local</span>
-            </h4>
+              <h4>
+                work <span className="text-c-purple-300">local</span>
+              </h4>
+            </div>
 
-            <p className="pt-12 text-xl lg:text-right text-c-purple-100">
+            <p className="text-xl lg:text-right text-c-purple-100">
               A place that is home to a community of great humans reflecting a positive, inclusive
               and diverse culture. We believe humanity is at its best when we feel deeply connected
               to a community.
@@ -190,12 +212,9 @@ const SplitSection = () => {
           style={{ x: right, borderRadius }}
           className="flex items-center justify-center flex-1 px-6 pointer-events-auto lg:min-h-screen lg:px-24 bg-c-purple-400"
         >
-          <motion.div
-            style={{ scale }}
-            className="space-y-6 text-2xl font-medium text-white lg:text-4xl"
-          >
-            <p>
-              Image a place of business accompanied by state-of-the-art storage facilities with a
+          <motion.div style={{ scale }} className="space-y-7">
+            <p className="text-xl font-medium text-white md:text-2xl lg:text-3xl">
+              Imagine a place of business accompanied by state-of-the-art storage facilities with a
               deepy rooted social and environmental conscience.
             </p>
 
@@ -217,15 +236,15 @@ const MapSection = () => {
     <motion.div style={{ backgroundColor }} className="relative">
       <Container>
         <div className="relative z-10 w-full max-w-4xl mx-auto space-y-8 lg:space-y-24">
-          <p className="text-3xl font-medium text-center text-white lg:text-6xl">
-            18 Brixton Rise, Glen Iris.
+          <p className="text-3xl font-medium text-center text-white lg:text-5xl">
+            <span className="text-c-green-200">Find us at</span> 18 Brixton Rise, Glen Iris.
           </p>
 
           <div className="flex-grow">
             <div>
               <Image
-                width="5761"
-                height="3449"
+                width="896"
+                height="536"
                 quality="100"
                 src="/images/map.png"
                 className="rounded-lg shadow-lg"
@@ -410,11 +429,11 @@ const Work = () => {
             </p>
             <Options options={communualFacilities} className="text-c-green-100 bg-c-green-700" />
           </div>
-          <div className="flex-grow max-w-sm">
+          <div className="flex-shrink-0 max-w-sm mx-auto">
             <Image
-              width="3334"
+              width="384"
+              height="459"
               quality="100"
-              height="3989"
               src="/images/IMG_9424.png"
               className="rounded-lg shadow-lg"
             />
@@ -453,16 +472,14 @@ const Store = () => {
 
             <Options options={options} className="text-white bg-c-blue-light-600" />
           </div>
-          <div className="flex-shrink-0 w-full max-w-sm">
-            <div>
-              <Image
-                width="646"
-                height="800"
-                quality="100"
-                src="/images/StorageRoom.png"
-                className="rounded-lg shadow-lg"
-              />
-            </div>
+          <div className="flex-shrink-0 w-full max-w-sm mx-auto">
+            <Image
+              width="384"
+              height="475"
+              quality="100"
+              src="/images/StorageRoom.png"
+              className="rounded-lg shadow-lg"
+            />
           </div>
         </ContentContainer>
 
@@ -510,12 +527,12 @@ const Warehouse = () => {
               </p>
             </div>
           </div>
-          <div className="flex-shrink-0 w-full max-w-sm">
+          <div className="flex-shrink-0 max-w-sm mx-auto">
             <Image
-              src="/images/IMG_9452.png"
-              width="2467"
-              height="3918"
+              width="384"
+              height="610"
               quality="100"
+              src="/images/IMG_9452.png"
               className="rounded-lg shadow-lg"
             />
           </div>
@@ -565,11 +582,11 @@ const Enterprise = () => {
             </div>
           </div>
 
-          <div className="flex-grow max-w-md space-y-8">
+          <div className="flex-shrink-0 max-w-md mx-auto space-y-8">
             <div>
               <Image
-                width="6000"
-                height="4000"
+                width="448"
+                height="299"
                 quality="100"
                 src="/images/nTO9T_VQ.jpeg"
                 className="rounded-lg shadow-lg"
@@ -577,8 +594,8 @@ const Enterprise = () => {
             </div>
             <div>
               <Image
-                width="6000"
-                height="4000"
+                width="448"
+                height="299"
                 quality="100"
                 src="/images/img_2313.jpeg"
                 className="rounded-lg shadow-lg"
@@ -587,9 +604,11 @@ const Enterprise = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap space-y-2 lg:space-y-0 lg:space-x-4 lg:flex-nowrap">
+        <div className="flex flex-wrap lg:flex-nowrap">
           {options.map(option => (
-            <div className="px-4 py-2 bg-gray-100 rounded-md text-c-gray-900">{option}</div>
+            <div className="px-4 py-2 mt-4 mr-4 bg-gray-100 rounded-md text-c-gray-900">
+              {option}
+            </div>
           ))}
         </div>
       </div>

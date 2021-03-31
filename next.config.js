@@ -1,4 +1,7 @@
 module.exports = {
+  future: {
+    webpack5: true,
+  },
   webpack: (config, options) => {
     // Replace React with Preact only in client production build
     if (!options.dev && !options.isServer) {
