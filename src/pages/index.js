@@ -39,29 +39,40 @@ const Hero = () => {
             <div className="w-64 max-w-md lg:w-full">
               <Logo />
             </div>
+
             <div className="w-64 max-w-xl lg:w-full">
               <TextLogo />
             </div>
+
+            <h2 className="max-w-2xl text-2xl font-medium text-center text-white lg:text-4xl">
+              A community for work and innovation, storage and creation.
+            </h2>
+
+            <svg
+              fill="none"
+              viewBox="0 20 16 48"
+              className="w-4 text-white animate-bounce"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill="currentColor"
+                d="M6.55759 1.43986V43.0793L2.46852 39.0045C1.90501 38.443 0.991112 38.443 0.423989 39.0045C-0.143134 39.566 -0.139522 40.4804 0.423989 41.0419L6.98022 47.5752C7.04885 47.6436 7.1211 47.7012 7.20057 47.7552C7.23308 47.7768 7.2692 47.7912 7.30171 47.8092C7.34867 47.8344 7.39924 47.8668 7.44981 47.8884C7.49316 47.9064 7.5365 47.9136 7.57985 47.928C7.62681 47.9424 7.67377 47.9604 7.72073 47.9712C7.79297 47.9856 7.86883 47.9892 7.94469 47.9928C7.96636 47.9928 7.98442 48 8.00248 48C8.02416 48 8.04583 47.9928 8.0675 47.9928C8.13975 47.9892 8.21199 47.9856 8.28424 47.9712C8.33481 47.9604 8.38538 47.9424 8.43234 47.928C8.47208 47.9136 8.51542 47.9064 8.55155 47.892C8.60573 47.8704 8.65991 47.838 8.71048 47.8092C8.73938 47.7912 8.77189 47.7804 8.80079 47.7624C8.88026 47.7084 8.95612 47.6472 9.02475 47.5788L15.5774 41.0491C15.8591 40.7683 16 40.3976 16 40.0304C16 39.6632 15.8591 39.2925 15.5774 39.0117C15.0139 38.4502 14.0963 38.4502 13.5328 39.0117L9.44738 43.0793V1.43986C9.44738 0.644335 8.80079 0 8.00248 0C7.20418 0 6.55759 0.644335 6.55759 1.43986Z"
+              />
+            </svg>
           </div>
           <div className="relative z-10 w-full max-w-2xl mx-auto space-y-12 text-center">
             <motion.p
               style={{ color: textColor }}
               className="text-base font-medium tracking-wide uppercase"
             >
-              Who we are
+              Who are we ?
             </motion.p>
 
-            <h2 className="text-4xl font-medium text-white lg:text-5xl">
-              Brixton Hive is a community for work and innovation, storage and creation.
-            </h2>
-
-            <motion.h3 style={{ color: textColor }} className="text-lg">
+            <motion.h3 style={{ color: textColor }} className="text-2xl">
               Home to thriving e-commerce, small businesses and community groups. Brixton Hive takes
               responsibility of services that can be shared and externally managed so you can focus
               on what you do best and enjoy most.
             </motion.h3>
-
-            <Button href="/our-values">Our values</Button>
           </div>
 
           <motion.svg
@@ -169,7 +180,8 @@ const SplitSection = () => {
 
             <p className="pt-12 text-xl lg:text-right text-c-purple-100">
               A place that is home to a community of great humans reflecting a positive, inclusive
-              and diverse culture
+              and diverse culture. We believe humanity is at its best when we feel deeply connected
+              to a community.
             </p>
           </motion.div>
         </motion.div>
@@ -180,17 +192,14 @@ const SplitSection = () => {
         >
           <motion.div
             style={{ scale }}
-            className="space-y-6 text-2xl font-medium lg:space-y-12 lg:text-4xl text-c-purple-200"
+            className="space-y-6 text-2xl font-medium text-white lg:text-4xl"
           >
             <p>
-              We believe humanity is at its best when we feel{' '}
-              <span className="text-white">deeply connected to a community.</span>
+              Image a place of business accompanied by state-of-the-art storage facilities with a
+              deepy rooted social and environmental conscience.
             </p>
 
-            <p>
-              At Brixton Hive you will certainly benefit from{' '}
-              <span className="text-white">our inclusive culture.</span>
-            </p>
+            <Button href="/our-values">Some things we value</Button>
           </motion.div>
         </motion.div>
       </div>
@@ -226,9 +235,9 @@ const MapSection = () => {
 
           <motion.div style={{ color }} className="space-y-8 text-lg">
             <p>
-              Covid-19 has seen many changes in the way we live, not least the explosion in
-              e-commerce and the desire to work locally. Most of us at Brixton Hive live within 5
-              kilometres and we all know the value of this.
+              Covid-19 has seen many changes in the way we live, with an explosion in e-commerce and
+              the desire to work locally. Most of us at Brixton Hive live within 5 kilometres and we
+              all know the value of this.
             </p>
             <p>
               Brixton Hive will provide work, storage and creativity spaces with unparalleled
@@ -333,7 +342,7 @@ const MapSection = () => {
                   customise each package to best suit the community member.
                 </p>
                 <p>
-                  A community manager is onsite 9-5 weekdays to ensure the smooth running of this
+                  A place curator is onsite 9-5 weekdays to ensure the smooth running of this
                   workplace so you can be focussed on your work. We provide secure a monitored
                   dispatch space so you can leave your orders to be courier collected without
                   needing to stay on site.
@@ -385,8 +394,7 @@ const Work = () => {
             <p className="text-lg text-c-green-800">
               It’s all the rage: office and desk space with communal facilities. The hive is more
               than a cluster of secure spaces, we're a place of mixed use, great diversity, and
-              connectivity. We even allow visitation of pets with approval from the community
-              manager.
+              connectivity. We even allow visitation of pets with approval from the place curator.
             </p>
             <div className="flex space-x-2">
               {spaceOptions.map(({ text, Icon }) => (
@@ -434,7 +442,7 @@ const Store = () => {
 
         <ContentContainer>
           <div className="space-y-8">
-            <p className="text-3xl font-medium text-white">Affordable self storage</p>
+            <p className="text-3xl font-medium text-white">First class self storage</p>
 
             <p className="text-lg text-c-blue-light-900">
               Premium prices for land in Melbourne have many people opting for off-site storage.{' '}
@@ -474,6 +482,8 @@ const Warehouse = () => {
     'Secure, monitored delivery and dispatch',
     'Printing and packaging stations',
     'End of trip facilities',
+    'Competitive rates',
+    'Collaborative culture',
   ];
 
   return (

@@ -71,7 +71,7 @@ const TransitionSection = () => {
               <p>
                 We are passionate about the importance of the contribution of bees to our life on
                 this planet and not only pay homage to this species in our branding, but you will
-                also find hives dotted carefully around the property. These Hive are placed as such
+                also find hives dotted carefully around the property. These hives are placed as such
                 that they will provide no disruption or danger to our community members but only
                 enhance our local flora and fauna. From time to time, you will be lucky enough to
                 dip into a jar of produce from our tiniest tenants.
