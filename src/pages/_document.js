@@ -19,6 +19,7 @@ export default class NextSite extends Document {
         <body className="w-full">
           <Main />
           <NextScript />
+          <script async data-api="/_hive" src="/bee.js" />
         </body>
       </Html>
     );
