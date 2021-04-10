@@ -15,6 +15,7 @@ export default class NextSite extends Document {
           <meta name="language" content="en" />
           <meta name="author" content="Sam Potter" />
           <meta name="robots" content="follow, all" />
+          <meta name="facebook-domain-verification" content="r95dms0sb054o3jfuzynma23u6skei" />
         </Head>
         <body className="w-full">
           <Main />
