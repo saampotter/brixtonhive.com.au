@@ -259,7 +259,11 @@ const MapSection = () => {
           </p>
 
           <div className="flex-grow">
-            <div>
+            <a
+              href="https://www.google.com/maps/place/BRIXTON+HIVE/@-37.8590912,145.0581132,17z/data=!3m1!4b1!4m5!3m4!1s0x6ad641fb52c7084b:0x3ae4ee17d0c5d592!8m2!3d-37.8590912!4d145.0603019"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 width="896"
                 height="536"
@@ -267,7 +271,7 @@ const MapSection = () => {
                 src="/images/map.png"
                 className="rounded-lg shadow-lg"
               />
-            </div>
+            </a>
           </div>
 
           <motion.div style={{ color }} className="space-y-8 text-lg">

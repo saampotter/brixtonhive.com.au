@@ -11,6 +11,8 @@ export default function GetAQuoteContainer() {
       setState(s => ({ status: 'submitting', ...s }));
 
       const body = {
+        apikey: '20e1db42-968a-4d76-bb8f-caba2b85658a',
+        ccemail: 'hello@brixtonhive.com.au',
         name: event.target.name.value,
         email: event.target.email.value,
         contact_number: event.target.contact_number.value,
@@ -18,7 +20,7 @@ export default function GetAQuoteContainer() {
         estimated_space: event.target.estimated_space.value,
       };
 
-      await fetch('/api/form', {
+      await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
