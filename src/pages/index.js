@@ -425,7 +425,11 @@ const Work = () => {
   return (
     <Container id="work" className="bg-c-green-500">
       <div className="space-y-16">
-        <p className="text-4xl font-bold text-center text-white lg:text-5xl">Work</p>
+        <div className="space-y-4">
+          <p className="text-4xl font-bold text-center text-white lg:text-5xl">Work</p>
+
+          <p className="text-2xl text-center text-c-green-200">Availability from December 2021</p>
+        </div>
 
         <ContentContainer>
           <div className="space-y-8">
