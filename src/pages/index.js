@@ -106,6 +106,7 @@ const Hero = () => {
               ].map(({ title, text, href, Icon }) => (
                 <a
                   href={href}
+                  key={href}
                   className="flex-1 w-full p-4 text-left transition bg-white rounded-lg shadow-lg hover:scale-95 transform-gpu"
                 >
                   <div className="flex items-center justify-between lg:items-start lg:flex-col lg:space-y-4">
@@ -512,7 +513,7 @@ const Store = () => {
             <p>Dont know how much storage space you need?</p>
 
             <p>
-              Get an estimate with{' '}
+              Get an estimate with&nbsp;
               <a
                 target="_blank"
                 rel="noopener noreferrer"
