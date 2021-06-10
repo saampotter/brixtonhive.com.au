@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import Button from '../components/Button';
+import { Input } from '../components/Input';
 import Container from '../components/Container';
+import { submitForm } from '../utils/submitForm';
 import ContentContainer from '../components/ContentContainer';
 
 export default function GetAQuoteContainer() {
@@ -11,8 +14,6 @@ export default function GetAQuoteContainer() {
       setState(s => ({ status: 'submitting', ...s }));
 
       const body = {
-        apikey: 'e06687ab-0b2e-4eef-a777-272c497ed500',
-        ccemail: 'hello@brixtonhive.com.au',
         name: event.target.name.value,
         email: event.target.email.value,
         contact_number: event.target.contact_number.value,
@@ -20,23 +21,17 @@ export default function GetAQuoteContainer() {
         estimated_space: event.target.estimated_space.value,
       };
 
-      await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
+      await submitForm(body);
 
       try {
         let [name] = body.name.includes(' ') ? body.name.split(' ') : [body.name];
         let [s, ...rest] = name.split('');
-        console.log({ s, rest });
         name = s.toUpperCase() + rest.join('');
         setState({ status: 'submitted', name });
       } catch {
         setState(s => ({ status: 'submitted', ...s }));
       }
     } catch (err) {
-      console.error(err);
       setState(s => ({ status: 'idle', ...s }));
     }
   };
@@ -74,7 +69,7 @@ const Form = ({ isSubmitting, onSubmit }) => (
       />
       <Input
         type="text"
-        label="Storage Period"
+        label="Storage period"
         id="storage_period"
         name="storage_period"
         placeholder="E.g. 18 months"
@@ -87,12 +82,7 @@ const Form = ({ isSubmitting, onSubmit }) => (
         placeholder="E.g. 4x3"
       />
 
-      <button
-        type="submit"
-        className="inline-block w-48 p-4 text-lg text-center transition bg-white rounded-full shadow-lg text-c-blue-900 transform-gpu hover:scale-95"
-      >
-        {isSubmitting ? 'Submitting...' : 'Submit'}
-      </button>
+      <Button type="submit">{isSubmitting ? 'Submitting...' : 'Submit'}</Button>
     </form>
   </>
 );
@@ -108,22 +98,4 @@ const Success = ({ name }) => (
       Enjoy your day.
     </p>
   </>
-);
-
-const Input = ({ id, name, label, ...rest }) => (
-  <div className="flex-1 w-full">
-    <label htmlFor="first_name" className="block font-medium focus:outline-none text-c-brown-900">
-      {label}
-    </label>
-
-    <div className="mt-1">
-      <input
-        id={id}
-        required
-        name={name}
-        className="block w-full px-3 py-2 rounded-lg shadow-sm focus:ring-3 sm:text-lg"
-        {...rest}
-      />
-    </div>
-  </div>
 );

@@ -1,10 +1,10 @@
 import clsx from 'clsx';
 import Image from 'next/image';
+import { useState } from 'react';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
 import {
   CubeOutline,
   DesktopComputerOutline,
-  ExternalLinkOutline,
   LightBulbOutline,
   TruckOutline,
   UserGroupOutline,
@@ -12,9 +12,11 @@ import {
 } from 'heroicons-react';
 
 import Logo from '../components/Logo';
+import { Input } from '../components/Input';
 import Button from '../components/Button';
 import TextLogo from '../components/TextLogo';
 import Container from '../components/Container';
+import { submitForm } from '../utils/submitForm';
 import ContentContainer from '../components/ContentContainer';
 
 export default function Index() {
@@ -508,13 +510,14 @@ const Store = () => {
 
           <div className="mt-8 text-c-blue-light-900">
             <p>Dont know how much storage space you need?</p>
+
             <p>
               Get an estimate with{' '}
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.selfstorage.com.au/space-calculator-iframe/"
-                className="underline"
+                className="inline-block underline"
               >
                 this space calculator
               </a>
@@ -717,24 +720,73 @@ const GetInTouch = () => (
         </p>
       </div>
 
-      <div className="flex-shrink-0 p-8 space-y-4 rounded-lg shadow-lg lg:space-y-0 lg:space-x-8 lg:flex lg:items-center lg:justify-between bg-c-brown-200">
-        <div className="flex-1">
-          <p className="text-lg text-gray-500">Email us at</p>
-          <a href="mailto:hello@brixtonhive.com.au" className="text-2xl font-medium">
-            hello@brixtonhive.com.au
-          </a>
+      <div className="overflow-hidden bg-white divide-y rounded-lg shadow-lg">
+        <div className="flex-shrink-0 p-8 space-y-4 lg:space-y-0 lg:space-x-8 lg:flex lg:items-center lg:justify-between">
+          <div className="flex-1">
+            <p className="text-lg text-gray-500">Email us at</p>
+            <a href="mailto:hello@brixtonhive.com.au" className="text-2xl font-medium">
+              hello@brixtonhive.com.au
+            </a>
+          </div>
+          <div className="flex-1">
+            <p className="text-lg text-gray-500">Or give us a call on</p>
+            <a href="tel:0420545024" className="text-2xl font-medium">
+              0420 545 024
+            </a>
+          </div>
         </div>
 
-        <div className="flex-1">
-          <p className="text-lg text-gray-500">Or give us a call on</p>
-          <a href="tel:0420545024" className="text-2xl font-medium">
-            0420 545 024
-          </a>
-        </div>
+        <Form />
       </div>
     </div>
   </Container>
 );
+
+const Form = () => {
+  const [status, setStatus] = useState('idle');
+
+  const handleSubmit = async event => {
+    event.preventDefault();
+    try {
+      setStatus('loading');
+
+      const body = {
+        name: event.target.name.value,
+        contact: event.target.contact.value,
+        message: event.target.message.value,
+      };
+
+      await submitForm(body);
+
+      setStatus('success');
+    } catch (error) {
+      setStatus('error');
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className="mx-auto">
+        <div className="p-8 space-y-6">
+          <div className="space-y-8 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0">
+            <Input label="Name" id="name" name="name" autoComplete="given-name" type="text" />
+            <Input type="text" id="contact" name="contact" label="Contact number or email" />
+          </div>
+          <Input type="text" label="Your message" id="message" name="message" isTextarea rows="3" />
+        </div>
+
+        <div className="p-8 bg-gray-50">
+          <Button type="submit">
+            {status === 'idle' && 'Submit'}
+            {status === 'error' && 'Please try again'}
+            {status === 'success' && 'Submitted successfully'}
+            {status === 'loading' && 'Submitting...'}
+          </Button>
+        </div>
+      </div>
+    </form>
+  );
+};
 
 const Options = ({ options = [], className }) => (
   <div className="flex flex-wrap items-start">
