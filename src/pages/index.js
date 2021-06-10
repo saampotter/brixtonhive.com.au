@@ -4,6 +4,7 @@ import { motion, useTransform, useViewportScroll } from 'framer-motion';
 import {
   CubeOutline,
   DesktopComputerOutline,
+  ExternalLinkOutline,
   LightBulbOutline,
   TruckOutline,
   UserGroupOutline,
@@ -30,6 +31,8 @@ export default function Index() {
     </div>
   );
 }
+
+//
 
 const Hero = () => {
   const inputs = [0.04, 0.06];
@@ -63,43 +66,46 @@ const Hero = () => {
               />
             </svg>
 
-            <h2 className="max-w-2xl text-2xl font-medium text-center text-white lg:text-4xl">
-              A community for work and innovation, storage and creation.
+            {/* two lines */}
+            <h2 className="max-w-3xl text-2xl font-medium text-center text-white lg:text-4xl">
+              Brixton hive is a progressive community of spaces for work, storage, and warehousing.
             </h2>
           </div>
-          <div className="relative z-10 w-full max-w-2xl mx-auto space-y-12 text-center">
+
+          <div className="relative z-10 w-full max-w-screen-md mx-auto space-y-12 text-center">
             <motion.p
               style={{ color: textColor }}
-              className="text-base font-medium tracking-wide uppercase"
+              className="text-lg font-medium tracking-wide uppercase"
             >
               Who are we
             </motion.p>
 
-            <h3 className="text-2xl text-white">
-              Home to thriving e-commerce, small businesses and community groups. Brixton Hive takes
-              responsibility of services that can be shared and externally managed so you can focus
-              on what you do best and enjoy most.
-            </h3>
-
+            {/* Clickable, more prominent */}
             <div className="flex flex-col items-center space-y-4 md:space-y-0 md:space-x-4 md:flex-row">
               {[
                 {
+                  href: '#work',
                   title: 'Workplace',
                   text: 'Communal and private workspaces',
                   Icon: DesktopComputerOutline,
                 },
                 {
+                  href: '#store',
                   title: 'Storage',
                   text: 'First class affordable self storage',
                   Icon: CubeOutline,
                 },
                 {
+                  href: '#warehouse',
                   title: 'Warehouse',
                   text: 'Ground-level storage for trades and e-commerce',
                   Icon: TruckOutline,
                 },
-              ].map(({ title, text, Icon }) => (
-                <div className="flex-1 w-full p-4 text-left rounded-lg shadow-lg bg-c-blue-200">
+              ].map(({ title, text, href, Icon }) => (
+                <a
+                  href={href}
+                  className="flex-1 w-full p-4 text-left transition bg-white rounded-lg shadow-lg hover:scale-95 transform-gpu"
+                >
                   <div className="flex items-center justify-between lg:items-start lg:flex-col lg:space-y-4">
                     <Icon className="flex-shrink-0 order-2 w-6 h-6 lg:mt-2 lg:order-1 text-c-blue-500" />
 
@@ -108,7 +114,7 @@ const Hero = () => {
                       <p className="mt-1 text-c-blue-500">{text}</p>
                     </div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>
@@ -219,9 +225,9 @@ const SplitSection = () => {
             </div>
 
             <p className="text-xl lg:text-right text-c-purple-100">
-              A place that is home to a community of great humans reflecting a positive, inclusive
-              and diverse culture. We believe humanity is at its best when we feel deeply connected
-              to a community.
+              A place that is home to a community reflecting a positive, inclusive and diverse
+              culture. We believe humanity is at its best when we feel deeply connected to a
+              community.
             </p>
           </motion.div>
         </motion.div>
@@ -260,17 +266,12 @@ const MapSection = () => {
 
           <div className="flex-grow">
             <a
-              href="https://www.google.com/maps/place/BRIXTON+HIVE/@-37.8590912,145.0581132,17z/data=!3m1!4b1!4m5!3m4!1s0x6ad641fb52c7084b:0x3ae4ee17d0c5d592!8m2!3d-37.8590912!4d145.0603019"
               target="_blank"
               rel="noopener noreferrer"
+              className="flex overflow-hidden rounded-lg shadow-lg bg-c-green-700"
+              href="https://www.google.com/maps/place/BRIXTON+HIVE/@-37.8590912,145.0581132,17z/data=!3m1!4b1!4m5!3m4!1s0x6ad641fb52c7084b:0x3ae4ee17d0c5d592!8m2!3d-37.8590912!4d145.0603019"
             >
-              <Image
-                width="896"
-                height="536"
-                quality="100"
-                src="/images/map.png"
-                className="rounded-lg shadow-lg"
-              />
+              <Image width="896" height="536" quality="100" src="/images/map.png" />
             </a>
           </div>
 
@@ -371,7 +372,7 @@ const MapSection = () => {
 
         <div className="relative z-10 max-w-4xl mx-auto space-y-8 lg:space-y-24">
           <p className="text-3xl font-medium text-center text-white lg:text-5xl">
-            We are different to any other co-work or storage space... on purpose.
+            We are different to any other co-work or storage space...... on purpose.
           </p>
 
           <div className="space-y-24 lg:flex lg:space-x-16 lg:space-y-0">
@@ -384,7 +385,7 @@ const MapSection = () => {
                 </p>
                 <p>
                   A place curator is onsite 9-5 weekdays to ensure the smooth running of this
-                  workplace so you can be focussed on your work. We provide secure a monitored
+                  workplace so you can be focussed on your work. We provide a secure, monitored
                   dispatch space so you can leave your orders to be courier collected without
                   needing to stay on site.
                 </p>
@@ -455,14 +456,8 @@ const Work = () => {
             </p>
             <Options options={communualFacilities} className="text-c-green-100 bg-c-green-700" />
           </div>
-          <div className="flex-shrink-0 max-w-sm mx-auto">
-            <Image
-              width="384"
-              height="459"
-              quality="100"
-              src="/images/IMG_9424.png"
-              className="rounded-lg shadow-lg"
-            />
+          <div className="flex flex-shrink-0 max-w-sm mx-auto overflow-hidden rounded-lg shadow-lg bg-c-green-700">
+            <Image width="384" height="459" quality="100" src="/images/IMG_9424.png" />
           </div>
         </ContentContainer>
       </div>
@@ -478,6 +473,7 @@ const Store = () => {
     'Short, medium, and long-term flexible spaces',
     'Keyless entry',
     'End of trip facilities',
+    'Temperature controlled wine/cellar units',
   ];
 
   return (
@@ -498,18 +494,34 @@ const Store = () => {
 
             <Options options={options} className="text-white bg-c-blue-light-600" />
           </div>
-          <div className="flex-shrink-0 w-full max-w-sm mx-auto">
-            <Image
-              width="384"
-              height="475"
-              quality="100"
-              src="/images/StorageRoom.png"
-              className="rounded-lg shadow-lg"
-            />
+
+          <div className="relative flex flex-shrink-0 w-full max-w-sm mx-auto overflow-hidden rounded-lg shadow-lg bg-c-blue-light-700">
+            <div className="absolute z-10 flex bg-white rounded-lg shadow-lg w-60 bottom-4 right-4">
+              <Image width="2090" height="588" quality="100" src="/images/ssaa-logo.png" />
+            </div>
+            <Image width="384" height="475" quality="100" src="/images/StorageRoom.png" />
           </div>
         </ContentContainer>
 
-        <Button href="/get-a-quote">Get a quote</Button>
+        <div className="text-center">
+          <Button href="/get-a-quote">Get a quote</Button>
+
+          <div className="mt-8 text-c-blue-light-900">
+            <p>Dont know how much storage space you need?</p>
+            <p>
+              Get an estimate with{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.selfstorage.com.au/space-calculator-iframe/"
+                className="underline"
+              >
+                this space calculator
+              </a>
+              .
+            </p>
+          </div>
+        </div>
       </div>
     </Container>
   );
@@ -553,14 +565,8 @@ const Warehouse = () => {
               </p>
             </div>
           </div>
-          <div className="flex-shrink-0 max-w-sm mx-auto">
-            <Image
-              width="384"
-              height="610"
-              quality="100"
-              src="/images/IMG_9452.png"
-              className="rounded-lg shadow-lg"
-            />
+          <div className="flex flex-shrink-0 max-w-sm mx-auto overflow-hidden rounded-lg shadow-lg bg-c-blue-700">
+            <Image width="384" height="610" quality="100" src="/images/IMG_9452.png" />
           </div>
         </ContentContainer>
 
@@ -609,23 +615,11 @@ const Enterprise = () => {
           </div>
 
           <div className="flex-shrink-0 max-w-md mx-auto space-y-8">
-            <div>
-              <Image
-                width="448"
-                height="299"
-                quality="100"
-                src="/images/nTO9T_VQ.jpeg"
-                className="rounded-lg shadow-lg"
-              />
+            <div className="flex overflow-hidden rounded-lg shadow-lg bg-c-gray-700">
+              <Image width="448" height="299" quality="100" src="/images/nTO9T_VQ.jpeg" />
             </div>
-            <div>
-              <Image
-                width="448"
-                height="299"
-                quality="100"
-                src="/images/img_2313.jpeg"
-                className="rounded-lg shadow-lg"
-              />
+            <div className="flex overflow-hidden rounded-lg shadow-lg bg-c-gray-700">
+              <Image width="448" height="299" quality="100" src="/images/img_2313.jpeg" />
             </div>
           </div>
         </div>
@@ -730,6 +724,7 @@ const GetInTouch = () => (
             hello@brixtonhive.com.au
           </a>
         </div>
+
         <div className="flex-1">
           <p className="text-lg text-gray-500">Or give us a call on</p>
           <a href="tel:0420545024" className="text-2xl font-medium">

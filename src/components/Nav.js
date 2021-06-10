@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { Fragment, useEffect, useState } from 'react';
 import { Transition } from '@headlessui/react';
+import { X } from 'heroicons-react';
 
 export default function Nav() {
   const router = useRouter();
@@ -22,7 +23,7 @@ export default function Nav() {
       <nav className="fixed z-40 w-full p-4 bg-transparent pointer-events-none lg:p-16">
         <div className="flex items-center justify-between">
           <NextLink href="/#get-in-touch" passHref>
-            <a className="p-3 px-4 text-gray-900 bg-white rounded-full shadow-lg pointer-events-auto">
+            <a className="p-3 px-4 text-gray-900 transition bg-white rounded-full shadow-lg pointer-events-auto hover:scale-95 transform-gpu">
               Get in touch
             </a>
           </NextLink>
@@ -30,7 +31,7 @@ export default function Nav() {
           <a
             role="button"
             onClick={() => setIsOpen(true)}
-            className="flex items-center justify-center p-3 bg-white rounded-full shadow-lg pointer-events-auto"
+            className="flex items-center justify-center p-3 transition bg-white rounded-full shadow-lg pointer-events-auto transform-gpu hover:scale-95"
           >
             <svg
               fill="none"
@@ -66,22 +67,9 @@ export default function Nav() {
               <a
                 role="button"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center p-3 bg-white rounded-full shadow-lg pointer-events-auto"
+                className="flex items-center justify-center p-3 transition bg-white rounded-full shadow-lg pointer-events-auto transform-gpu hover:scale-95"
               >
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  className="w-6 h-6 text-black"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <X className="w-6 h-6 text-black" />
               </a>
             </div>
           </div>
