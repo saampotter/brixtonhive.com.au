@@ -500,10 +500,10 @@ const Store = () => {
 
             <Options options={options} className="text-white bg-c-blue-light-600" />
 
-            <div className="flex items-center justify-between mt-2">
+            <div className="mt-8 lg:flex lg:items-center lg:justify-between lg:mt-2">
               <p className="text-lg text-c-blue-light-900">We are a member of the</p>
 
-              <div className="flex w-[285px]">
+              <div className="flex w-[285px] -ml-4 lg:ml-0">
                 <Image width="2090" height="588" quality="100" src="/images/ssaa-logo.png" />
               </div>
             </div>
