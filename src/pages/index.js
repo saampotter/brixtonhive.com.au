@@ -103,10 +103,10 @@ const Hero = () => {
                   text: 'Ground-level storage for trades and e-commerce',
                   Icon: TruckOutline,
                 },
-              ].map(({ title, text, href, Icon }) => (
+              ].map(({ title, text, href, Icon }, i) => (
                 <a
+                  key={i}
                   href={href}
-                  key={href}
                   className="flex-1 w-full p-4 text-left transition bg-white rounded-lg shadow-lg hover:scale-95 transform-gpu"
                 >
                   <div className="flex items-center justify-between lg:items-start lg:flex-col lg:space-y-4">
@@ -446,8 +446,11 @@ const Work = () => {
               connectivity. We even allow visitation of pets with approval from the place curator.
             </p>
             <div className="flex space-x-2">
-              {spaceOptions.map(({ text, Icon }) => (
-                <div className="flex flex-col justify-between flex-1 px-4 py-4 space-y-2 rounded-lg bg-c-green-200">
+              {spaceOptions.map(({ text, Icon }, i) => (
+                <div
+                  key={i}
+                  className="flex flex-col justify-between flex-1 px-4 py-4 space-y-2 rounded-lg bg-c-green-200"
+                >
                   <Icon className="text-c-green-500" />
                   <p className="text-lg text-c-green-900">{text}</p>
                 </div>
@@ -485,10 +488,10 @@ const Store = () => {
         <p className="text-4xl font-bold text-white lg:text-5xl">Store</p>
 
         <ContentContainer>
-          <div className="space-y-8">
+          <div>
             <p className="text-3xl font-medium text-white">First class self storage</p>
 
-            <p className="text-lg text-c-blue-light-900">
+            <p className="my-8 text-lg text-c-blue-light-900">
               Premium prices for land in Melbourne have many people opting for off-site storage.{' '}
               <b>Our rates are highly competitive.</b> Managed by friendly and engaging staff,
               supported by state of the art storage software. 1000m2 dedicated to individual storage
@@ -496,12 +499,17 @@ const Store = () => {
             </p>
 
             <Options options={options} className="text-white bg-c-blue-light-600" />
+
+            <div className="flex items-center justify-between mt-2">
+              <p className="text-lg text-c-blue-light-900">We are a member of the</p>
+
+              <div className="flex w-[285px]">
+                <Image width="2090" height="588" quality="100" src="/images/ssaa-logo.png" />
+              </div>
+            </div>
           </div>
 
           <div className="relative flex flex-shrink-0 w-full max-w-sm mx-auto overflow-hidden rounded-lg shadow-lg bg-c-blue-light-700">
-            <div className="absolute z-10 flex bg-white rounded-lg shadow-lg w-60 bottom-4 right-4">
-              <Image width="2090" height="588" quality="100" src="/images/ssaa-logo.png" />
-            </div>
             <Image width="384" height="475" quality="100" src="/images/StorageRoom.png" />
           </div>
         </ContentContainer>
@@ -513,14 +521,14 @@ const Store = () => {
             <p>Dont know how much storage space you need?</p>
 
             <p>
-              Get an estimate with&nbsp;
+              Get an estimate with this&nbsp;
               <a
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.selfstorage.com.au/space-calculator-iframe/"
                 className="inline-block underline"
               >
-                this space calculator
+                space calculator
               </a>
               .
             </p>
@@ -629,8 +637,8 @@ const Enterprise = () => {
         </div>
 
         <div className="flex flex-wrap lg:flex-nowrap">
-          {options.map(option => (
-            <div className="px-4 py-2 mt-4 mr-4 bg-gray-100 rounded-md text-c-gray-900">
+          {options.map((option, i) => (
+            <div key={i} className="px-4 py-2 mt-4 mr-4 bg-gray-100 rounded-md text-c-gray-900">
               {option}
             </div>
           ))}
@@ -791,8 +799,10 @@ const Form = () => {
 
 const Options = ({ options = [], className }) => (
   <div className="flex flex-wrap items-start">
-    {options.map(option => (
-      <p className={clsx('px-3 my-1 mr-2 py-1 rounded-md', className)}>{option}</p>
+    {options.map((option, i) => (
+      <p key={i} className={clsx('px-3 my-1 mr-2 py-1 rounded-md', className)}>
+        {option}
+      </p>
     ))}
   </div>
 );
